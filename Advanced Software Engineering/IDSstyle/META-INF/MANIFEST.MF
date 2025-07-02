@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Copy_Of_WebRatio
-Bundle-SymbolicName: Copy_Of_WebRatio;singleton:=true
-Bundle-Version: 1.0.0
-Bundle-Vendor: 
-Require-Bundle: com.webratio.ide.styles
