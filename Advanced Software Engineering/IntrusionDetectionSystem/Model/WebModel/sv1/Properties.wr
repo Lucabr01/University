@@ -1,9 +1,0 @@
-<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Login_View" homePage="sv1#page1">
-  <OperationUnits>
-    <ModuleInstanceUnit gr:x="525" gr:y="255" id="sv1#miu1" action="true" moduleId="mov1#opm1">
-      <KOLink id="sv1#miu1#kln2" name="KOFlow2" to="sv1#page1#mssu1">
-        <LinkParameter id="sv1#miu1#kln2#par5" name="Errore nel login_Shown Messages" sourceValue="Errore nel login" target="sv1#page1#mssu1.shownMessages"/>
-      </KOLink>
-    </ModuleInstanceUnit>
-  </OperationUnits>
-</SiteView>

@@ -1,7 +1,0 @@
-<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="175" gr:y="1060" id="sv2#area9" name="My Account" landmark="true" defaultPage="sv2#area9#page12" layout:style="WRDefault">
-  <OperationUnits>
-    <ModuleInstanceUnit id="sv2#area9#miu19" gr:x="315" gr:y="40" action="true" moduleId="mov2#opm16">
-      <OKLink id="sv2#area9#miu19#oln67" name="OKFlow66" to="sv2#area8#page18" automaticCoupling="true"/>
-    </ModuleInstanceUnit>
-  </OperationUnits>
-</Area>

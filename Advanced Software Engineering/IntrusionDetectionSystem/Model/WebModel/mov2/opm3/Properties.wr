@@ -1,8 +1,0 @@
-<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="1115" gr:y="55" id="mov2#opm3" name="Reloading">
-  <OperationUnits>
-    <InputCollectorUnit id="mov2#opm3#icu3" name="Input Collector" gr:x="30" gr:y="60">
-      <OKLink id="mov2#opm3#icu3#oln3" name="OKFlow3" to="mov2#opm3#okcu1" automaticCoupling="true"/>
-    </InputCollectorUnit>
-    <OKCollectorUnit gr:x="565" gr:y="60" id="mov2#opm3#okcu1" name="OK Port1"/>
-  </OperationUnits>
-</OperationModule>
