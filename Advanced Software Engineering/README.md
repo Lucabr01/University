@@ -4,7 +4,7 @@ network traffic data in a database. The management interface is then used by var
 to access the data and perform different tasks...See more on the [report](<ASE_Project_Report.pdf>)
 
 
-#Inizializing the project
+## Inizializing the project
 
 First you will have to import the [project](IntrusionDetectionSystem.zip) (if you dont know how to do it check this [video](https://my.webratio.com/learn/learningobject/organize-the-workspace-v-72?cbck=wrReq87824)). The you should add into the project (from the webratio platform software) my [custom style templates](IDSstyle.zip). If after adding the style WebRatio generates error, just apply the DefaultWebRatio Style pages and delete from the site views the **Reloading Operation** and the **Periodical Refresh Component". 
 
