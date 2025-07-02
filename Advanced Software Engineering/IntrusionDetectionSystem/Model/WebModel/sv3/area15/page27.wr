@@ -1,0 +1,102 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv3#area15#page27" name="Settings">
+  <ContentUnits>
+    <DataUnit gr:x="0" gr:y="0" id="sv3#area15#page27#dau9" name="Max numbers of open events for an AS operator." entity="ent12" displayAttributes="ent12#att24">
+      <Selector id="sv3#area15#page27#dau9#su45" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv3#area15#page27#dau9#su45#acond9" name="AttCondition9" predicate="eq" booleanOperator="or" implied="false" value="1" attributes="ent12#att16"/>
+      </Selector>
+    </DataUnit>
+    <EntryUnit gr:x="110" gr:y="110" id="sv3#area15#page27#enu12" name="Set max events" entity="ent12" linkOrder="sv3#area15#page27#enu12#ln120">
+      <Field id="sv3#area15#page27#enu12#fld17" name="Set n" type="string" modifiable="true">
+        <VRules>
+          <TypeValidationRule id="sv3#area15#page27#enu12#fld17#tvr1" name="Type Validation1" type="integer" errorMessage="Must be an integer!"/>
+        </VRules>
+      </Field>
+      <Link id="sv3#area15#page27#enu12#ln120" name="Confirm" to="sv3#area15#miu28" type="normal" validate="true">
+        <LinkParameter id="sv3#area15#page27#enu12#ln120#par292" name="Set n_n" source="sv3#area15#page27#enu12#fld17" target="sv3#area15#miu28.mov3#mpkg3#opm22#icu22#icp49"/>
+      </Link>
+    </EntryUnit>
+    <DataUnit id="sv3#area15#page27#dau11" name="Set YES if all sensors can be offline simultaneously" gr:x="0" gr:y="215" entity="ent12" displayAttributes="ent12#att26" linkOrder="sv3#area15#page27#dau11#ln121">
+      <Selector id="sv3#area15#page27#dau11#su48" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv3#area15#page27#dau11#su48#acond10" name="AttCondition9" predicate="eq" booleanOperator="or" implied="false" value="1" attributes="ent12#att16"/>
+      </Selector>
+      <Link id="sv3#area15#page27#dau11#ln121" name="Switch" to="sv3#area15#miu29" type="normal" validate="true">
+        <LinkParameter id="sv3#area15#page27#dau11#ln121#par296" name="oid_id" source="data.ent12#att16" target="sv3#area15#miu29.mov3#mpkg3#opm23#icu23#icp50"/>
+      </Link>
+    </DataUnit>
+    <MultiMessageUnit gr:x="195" gr:y="330" id="sv3#area15#page27#mssu22" name="Error"/>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area15#page27#dau9">
+          <layout:Attribute attribute="ent12#att24"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area15#page27#enu12">
+          <layout:Field field="sv3#area15#page27#enu12#fld17"/>
+          <layout:Link link="sv3#area15#page27#enu12#ln120"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area15#page27#dau11">
+          <layout:Attribute attribute="ent12#att26"/>
+          <layout:Link link="sv3#area15#page27#dau11#ln121"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area15#page27#mssu22"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

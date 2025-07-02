@@ -1,0 +1,40 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv4#area10#page20" name="My Account" layout:style="Copy_Of_WebRatio" gr:x="0" gr:y="0">
+  <ContentUnits>
+    <GetUnit id="sv4#area10#page20#gtu7" name="Get userID" gr:x="20" gr:y="130" contextParameters="UserCtxParam">
+      <Link id="sv4#area10#page20#gtu7#ln28" name="Flow22" to="sv4#area10#page20#qu8" type="transport" validate="true">
+        <LinkParameter id="sv4#area10#page20#gtu7#ln28#par140" name="UserCtxParam.oid_userID" source="sv4#area10#page20#gtu7.UserCtxParam" target="sv4#area10#page20#qu8.sv4#area10#page20#qu8#qi5"/>
+      </Link>
+      <Link id="sv4#area10#page20#gtu7#ln32" name="Flow59" to="sv4#area10#miu14" type="transport" validate="true">
+        <LinkParameter id="sv4#area10#page20#gtu7#ln32#par141" name="UserCtxParam.oid_to" source="sv4#area10#page20#gtu7.UserCtxParam" target="sv4#area10#miu14.mov2#opm16#icu16#icp36"/>
+      </Link>
+      <Link id="sv4#area10#page20#gtu7#ln33" name="Flow71" to="sv4#area10#page20#dau4" type="transport" automaticCoupling="true" validate="true"/>
+      <Link id="sv4#area10#page20#gtu7#ln103" name="Flow103" to="sv4#area10#page20#qu12" type="transport" validate="true">
+        <LinkParameter id="sv4#area10#page20#gtu7#ln103#par116" name="UserCtxParam.matricola_IDuser" source="sv4#area10#page20#gtu7.UserCtxParam" target="sv4#area10#page20#qu12.sv4#area10#page20#qu12#qi10"/>
+      </Link>
+    </GetUnit>
+    <QueryUnit id="sv4#area10#page20#qu8" name="Alert" linkOrder="sv4#area10#page20#qu8#ln44" gr:x="45" gr:y="0" mode="select" language="SQL" db="db1">
+      <QueryText xml:space="preserve">SELECT CONCAT('You have ', COUNT(*), ' unread notifications')
+FROM   public.notification AS n
+WHERE  n.to_pp   = :userID
+  AND  n.checked = FALSE;
+</QueryText>      <QueryInput id="sv4#area10#page20#qu8#qi5" name="userID" required="true" type="integer"/>      <QueryOutput id="sv4#area10#page20#qu8#qo12" name="Welcome back!" type="string"/>      <Link id="sv4#area10#page20#qu8#ln44" name="check" to="sv4#area10#miu14" type="normal" automaticCoupling="true" validate="true"/>    </QueryUnit>    <DataUnit id="sv4#area10#page20#dau4" name="My Data" gr:x="0" gr:y="265" entity="User" displayAttributes="User#att97 userName email User#att1">      <Selector id="sv4#area10#page20#dau4#su16" defaultPolicy="fill" booleanOperator="and">        <KeyCondition id="sv4#area10#page20#dau4#su16#kcond13" name="KeyCondition15" predicate="in" implied="false"/>      </Selector>    </DataUnit>    <QueryUnit gr:x="145" gr:y="320" id="sv4#area10#page20#qu12" name="Infos" mode="select" language="SQL" db="db1">      <QueryInput id="sv4#area10#page20#qu12#qi10" name="IDuser" required="true" type="integer"/>      <QueryOutput id="sv4#area10#page20#qu12#qo20" name="TotalEvents" type="integer"/>      <QueryOutput id="sv4#area10#page20#qu12#qo21" name="TotalOpenEvents" type="integer"/>      <QueryOutput id="sv4#area10#page20#qu12#qo22" name="TotalClosedEvents" type="integer"/>      <QueryOutput id="sv4#area10#page20#qu12#qo23" name="EventsClosedLastWeek" type="integer"/>      <QueryOutput id="sv4#area10#page20#qu12#qo24" name="AverageMitigationTime" type="string"/>      <QueryText xml:space="preserve">SELECT
+  COUNT(*)                               AS total_assigned_events,
+  COUNT(*)   FILTER (WHERE NOT e.closed) AS open_events,
+  COUNT(*)   FILTER (WHERE     e.closed) AS closed_events,
+  COUNT(*)   FILTER (
+    WHERE e.closed
+      AND e.ts_closed &gt;= now() - INTERVAL '7 days'
+  )                                      AS closed_last_week,
+  COALESCE(
+    CAST(
+      ROUND(
+        AVG(EXTRACT(EPOCH FROM (e.ts_closed - e.ts)) / 3600),
+        2
+      ) 
+    AS text)
+    || ' h',             -- qui concateno ' h'
+    '0.00 h'
+  )                                      AS avg_resolution
+FROM public.evento AS e
+WHERE e.operatore = :IDuser;
+</QueryText>    </QueryUnit>  </ContentUnits>  <layout:Grid containerType="grid">    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv4#area10#page20#qu8">          <layout:Link link="sv4#area10#page20#qu8#ln44"/>        </layout:Unit>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv4#area10#page20#dau4">          <layout:Attribute attribute="User#att97"/>          <layout:Attribute attribute="userName"/>          <layout:Attribute attribute="email"/>          <layout:Attribute attribute="User#att1"/>        </layout:Unit>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv4#area10#page20#qu12"/>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>  </layout:Grid></Page>

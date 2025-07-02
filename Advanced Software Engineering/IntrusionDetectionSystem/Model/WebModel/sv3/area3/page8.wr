@@ -1,0 +1,51 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="15" gr:y="330" id="sv3#area3#page8" name="Create User" landmark="true">
+  <ContentUnits>
+    <EntryUnit gr:x="45" gr:y="35" id="sv3#area3#page8#enu2" name="New User" entity="User" linkOrder="sv3#area3#page8#enu2#ln5 sv3#area3#page8#enu2#ln9">
+      <Field id="sv3#area3#page8#enu2#fld3" name="userName" type="string" modifiable="true" attribute="User#att97"/>
+      <Field id="sv3#area3#page8#enu2#fld7" name="nome" type="string" modifiable="true" attribute="userName"/>
+      <Field id="sv3#area3#page8#enu2#fld8" name="cognome" type="string" modifiable="true" attribute="email"/>
+      <Field id="sv3#area3#page8#enu2#fld9" name="password" type="password" modifiable="true" attribute="password"/>
+      <Field id="sv3#area3#page8#enu2#fld10" name="DataNascita" type="date" modifiable="true" attribute="User#att1"/>
+      <Link id="sv3#area3#page8#enu2#ln5" name="Register IDSoperator" to="sv3#area3#miu7" type="normal" validate="true">
+        <LinkParameter id="sv3#area3#page8#enu2#ln5#par23" name="cognome_cognome" source="sv3#area3#page8#enu2#fld8" target="sv3#area3#miu7.mov3#mpkg2#opm6#icu6#icp11"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln5#par24" name="DataNascita_DataNascita" source="sv3#area3#page8#enu2#fld10" target="sv3#area3#miu7.mov3#mpkg2#opm6#icu6#icp10"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln5#par25" name="nome_nome" source="sv3#area3#page8#enu2#fld7" target="sv3#area3#miu7.mov3#mpkg2#opm6#icu6#icp12"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln5#par26" name="password_password" source="sv3#area3#page8#enu2#fld9" target="sv3#area3#miu7.mov3#mpkg2#opm6#icu6#icp14"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln5#par46" name="userName_userName" source="sv3#area3#page8#enu2#fld3" target="sv3#area3#miu7.mov3#mpkg2#opm6#icu6#icp4"/>
+      </Link>
+      <Link id="sv3#area3#page8#enu2#ln9" name="Register ASoperator" to="sv3#area3#miu8" type="normal" validate="true">
+        <LinkParameter id="sv3#area3#page8#enu2#ln9#par3" name="cognome_cognome" source="sv3#area3#page8#enu2#fld8" target="sv3#area3#miu8.mov3#mpkg2#opm7#icu7#icp16"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln9#par47" name="DataNascita_DataNascita" source="sv3#area3#page8#enu2#fld10" target="sv3#area3#miu8.mov3#mpkg2#opm7#icu7#icp15"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln9#par48" name="nome_nome" source="sv3#area3#page8#enu2#fld7" target="sv3#area3#miu8.mov3#mpkg2#opm7#icu7#icp17"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln9#par49" name="password_password" source="sv3#area3#page8#enu2#fld9" target="sv3#area3#miu8.mov3#mpkg2#opm7#icu7#icp18"/>
+        <LinkParameter id="sv3#area3#page8#enu2#ln9#par114" name="userName_UserName" source="sv3#area3#page8#enu2#fld3" target="sv3#area3#miu8.mov3#mpkg2#opm7#icu7#icp5"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area3#page8#enu2">
+          <layout:Field field="sv3#area3#page8#enu2#fld3"/>
+          <layout:Field field="sv3#area3#page8#enu2#fld7"/>
+          <layout:Field field="sv3#area3#page8#enu2#fld8"/>
+          <layout:Field field="sv3#area3#page8#enu2#fld9"/>
+          <layout:Field field="sv3#area3#page8#enu2#fld10"/>
+          <layout:Link link="sv3#area3#page8#enu2#ln5"/>
+          <layout:Link link="sv3#area3#page8#enu2#ln9"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

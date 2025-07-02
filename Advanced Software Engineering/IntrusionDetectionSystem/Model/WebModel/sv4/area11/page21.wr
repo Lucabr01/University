@@ -1,0 +1,147 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv4#area11#page21" name="Notification Page" layout:style="Copy_Of_WebRatio" gr:x="0" gr:y="5">
+  <ContentUnits>
+    <PowerIndexUnit id="sv4#area11#page21#pwu2" name="My notifications" gr:x="70" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent11" displayAttributes="ent11#att20 ent11#att21 ent11#att11 ent11#att23" linkOrder="sv4#area11#page21#pwu2#ln45">
+      <DefaultSortAttribute attribute="ent11#att20" order="descending"/>
+      <Selector id="sv4#area11#page21#pwu2#su18" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv4#area11#page21#pwu2#su18#rcond3" name="RoleCondition2" predicate="in" implied="false" role="rel16#role31"/>
+      </Selector>
+      <Link id="sv4#area11#page21#pwu2#ln45" name="check" to="sv4#area11#miu17" type="normal" validate="true" gr:bendpoints="111,-99,-474,-159;479,-99,-106,-159">
+        <LinkParameter id="sv4#area11#page21#pwu2#ln45#par147" name="oid_notiID" source="data[].ent11#att19" target="sv4#area11#miu17.mov2#opm5#icu5#icp8"/>
+      </Link>
+    </PowerIndexUnit>
+    <GetUnit id="sv4#area11#page21#gtu8" name="Get5" gr:x="90" gr:y="145" contextParameters="UserCtxParam">
+      <Link id="sv4#area11#page21#gtu8#ln46" name="Flow31" to="sv4#area11#page21#pwu2" type="transport" validate="true">
+        <LinkParameter id="sv4#area11#page21#gtu8#ln46#par148" name="UserCtxParam.oid_RoleCondition2 [oid]" source="sv4#area11#page21#gtu8.UserCtxParam" target="sv4#area11#page21#pwu2#su18#rcond3.userOID"/>
+      </Link>
+      <Link id="sv4#area11#page21#gtu8#ln47" name="Flow20" to="sv4#area11#miu20" type="transport" validate="true" gr:bendpoints="77,103,-278,-67">
+        <LinkParameter id="sv4#area11#page21#gtu8#ln47#par149" name="UserCtxParam.oid_from_op" source="sv4#area11#page21#gtu8.UserCtxParam" target="sv4#area11#miu20.mov2#opm12#icu12#icp26"/>
+      </Link>
+      <Link id="sv4#area11#page21#gtu8#ln53" name="Flow48" to="sv4#area11#page21#seu13" type="transport" validate="true" gr:bendpoints="-127,93,-62,-227">
+        <LinkParameter id="sv4#area11#page21#gtu8#ln53#par156" name="UserCtxParam.oid_AttCondition5" source="sv4#area11#page21#gtu8.UserCtxParam" target="sv4#area11#page21#seu13#su23#acond1"/>
+      </Link>
+      <Link id="sv4#area11#page21#gtu8#ln56" name="Flow51" to="sv4#area11#miu21" type="transport" validate="true" gr:bendpoints="173,208,-217,-97">
+        <LinkParameter id="sv4#area11#page21#gtu8#ln56#par196" name="UserCtxParam.oid_from" source="sv4#area11#page21#gtu8.UserCtxParam" target="sv4#area11#miu21.mov2#opm15#icu15#icp35"/>
+      </Link>
+    </GetUnit>
+    <MultiMessageUnit id="sv4#area11#page21#mssu11" name="Error" gr:x="370" gr:y="125"/>
+    <EntryUnit id="sv4#area11#page21#enu8" name="Send an alert" linkOrder="sv4#area11#page21#enu8#ln57 sv4#area11#page21#enu8#ln58" gr:x="165" gr:y="410" entity="User" fieldOrder="sv4#area11#page21#enu8#fld12 sv4#area11#page21#enu8#sfld7">
+      <Field id="sv4#area11#page21#enu8#fld12" name="Text" type="string" modifiable="true">
+        <VRules>
+          <MandatoryValidationRule id="sv4#area11#page21#enu8#fld12#mnd5" name="Mandatory4"/>
+        </VRules>
+      </Field>
+      <Link id="sv4#area11#page21#enu8#ln57" name="Send" to="sv4#area11#miu20" type="normal" validate="true">
+        <LinkParameter id="sv4#area11#page21#enu8#ln57#par199" name="Text_message" source="sv4#area11#page21#enu8#fld12" target="sv4#area11#miu20.mov2#opm12#icu12#icp28"/>
+        <LinkParameter id="sv4#area11#page21#enu8#ln57#par203" name="Operators_to_op" source="sv4#area11#page21#enu8#sfld7" target="sv4#area11#miu20.mov2#opm12#icu12#icp27"/>
+      </Link>
+      <SelectionField id="sv4#area11#page21#enu8#sfld7" name="Operator" type="string" attribute="User#att97" preselectValue="None">
+        <VRules/>
+      </SelectionField>
+      <Link id="sv4#area11#page21#enu8#ln58" name="Broadcast all" to="sv4#area11#miu21" type="normal" validate="true">
+        <LinkParameter id="sv4#area11#page21#enu8#ln58#par204" name="Text_mess" source="sv4#area11#page21#enu8#fld12" target="sv4#area11#miu21.mov2#opm15#icu15#icp34"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit id="sv4#area11#page21#mssu12" name="Info" gr:x="100" gr:y="255"/>
+    <SelectorUnit id="sv4#area11#page21#seu13" name="Selector4" gr:x="0" gr:y="455" entity="User">
+      <Link id="sv4#area11#page21#seu13#ln60" name="Flow23" to="sv4#area11#page21#enu8" type="transport" validate="true" gr:bendpoints="115,23,-5,103">
+        <LinkParameter id="sv4#area11#page21#seu13#ln60#par205" name="oid_Key Condition [oid]" source="userOIDArray" target="sv4#area11#page21#enu8.userOID"/>
+        <LinkParameter id="sv4#area11#page21#seu13#ln60#par206" name="userName_Operators [label]" source="User#att97Array" target="sv4#area11#page21#enu8#sfld7_label"/>
+        <LinkParameter id="sv4#area11#page21#seu13#ln60#par207" name="userName_Operators [output]" source="User#att97Array" target="sv4#area11#page21#enu8#sfld7_output"/>
+      </Link>
+      <Selector id="sv4#area11#page21#seu13#su23" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv4#area11#page21#seu13#su23#acond1" name="AttCondition5" predicate="neq" booleanOperator="or" implied="false" attributes="userOID"/>
+      </Selector>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv4#area11#page21#pwu2">
+          <layout:Link link="sv4#area11#page21#pwu2#ln45"/>
+          <layout:Attribute attribute="ent11#att20"/>
+          <layout:Attribute attribute="ent11#att21"/>
+          <layout:Attribute attribute="ent11#att11"/>
+          <layout:Attribute attribute="ent11#att23"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv4#area11#page21#mssu11"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv4#area11#page21#enu8">
+          <layout:Field field="sv4#area11#page21#enu8#fld12"/>
+          <layout:Field field="sv4#area11#page21#enu8#sfld7"/>
+          <layout:Link link="sv4#area11#page21#enu8#ln57"/>
+          <layout:Link link="sv4#area11#page21#enu8#ln58"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv4#area11#page21#mssu12"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,89 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="20" id="sv2#area6#page11" name="Events" landmark="false" layout:style="Copy_Of_WebRatio">
+  <ContentUnits>
+    <IndexUnit gr:x="75" gr:y="0" id="sv2#area6#page11#inu6" name="MyEvents" entity="ent4" displayAttributes="ent1#att2 ent1#att3 ent1#att4 rel3#role5.User#att97 ent1#att10" linkOrder="sv2#area6#page11#inu6#ln41">
+      <Selector id="sv2#area6#page11#inu6#su15" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv2#area6#page11#inu6#su15#rcond7" name="RoleCondition7" predicate="in" implied="false" role="rel13#role25"/>
+      </Selector>
+      <Link id="sv2#area6#page11#inu6#ln41" name="check event" to="sv2#area6#page19#seu6" automaticCoupling="true" type="normal" validate="true" gr:bendpoints="66,396,-484,236;557,395,2,245"/>
+      <SortAttribute attribute="ent1#att3" order="descending"/>
+    </IndexUnit>
+    <GetUnit gr:x="80" gr:y="160" id="sv2#area6#page11#gtu1" name="GetUserID" contextParameters="UserCtxParam">
+      <Link id="sv2#area6#page11#gtu1#ln40" name="Flow40" to="sv2#area6#page11#inu6" type="transport" validate="true">
+        <LinkParameter id="sv2#area6#page11#gtu1#ln40#par100" name="UserCtxParam.oid_RoleCondition7 [oid]" source="sv2#area6#page11#gtu1.UserCtxParam" target="sv2#area6#page11#inu6#su15#rcond7.userOID"/>
+      </Link>
+    </GetUnit>
+    <MultiMessageUnit gr:x="230" gr:y="200" id="sv2#area6#page11#mssu4" name="Alert"/>
+    <MultiMessageUnit gr:x="135" gr:y="290" id="sv2#area6#page11#mssu5" name="Error"/>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area6#page11#inu6">
+          <layout:Link link="sv2#area6#page11#inu6#ln41"/>
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Attribute attribute="ent1#att3"/>
+          <layout:Attribute attribute="ent1#att4"/>
+          <layout:Attribute attribute="rel3#role5.User#att97"/>
+          <layout:Attribute attribute="ent1#att10"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area6#page11#mssu4"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area6#page11#mssu5"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

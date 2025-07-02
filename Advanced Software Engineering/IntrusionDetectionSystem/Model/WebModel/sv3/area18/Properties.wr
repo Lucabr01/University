@@ -1,0 +1,10 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv3#area18" name="Sensors Management" defaultPage="sv3#area18#page30" landmark="true" layout:style="Copy_Of_WebRatio" gr:x="1425" gr:y="605">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv3#area18#miu10" gr:x="220" gr:y="150" action="true" moduleId="mov2#opm4">
+      <KOLink id="sv3#area18#miu10#kln58" name="KOFlow56" to="sv3#area18#page30#mssu21" codeRef="mov2#opm4#kocu21">
+        <LinkParameter id="sv3#area18#miu10#kln58#par295" name="At least one sensor must be ON !_Shown Messages" target="sv3#area18#page30#mssu21.shownMessages" sourceValue="At least one sensor must be ON !"/>
+      </KOLink>
+      <OKLink id="sv3#area18#miu10#oln117" name="OKFlow113" to="sv3#area18#page30" automaticCoupling="true" gr:bendpoints="-40,-100,200,-65"/>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+</Area>

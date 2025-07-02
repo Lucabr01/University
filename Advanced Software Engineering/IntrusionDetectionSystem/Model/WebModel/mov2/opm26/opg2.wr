@@ -1,0 +1,52 @@
+<OperationGroup xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="mov2#opm26#opg2" name="Transi" transaction="true" gr:x="540" gr:y="185">
+  <OperationUnits>
+    <DeleteUnit id="mov2#opm26#opg2#dlu3" name="Delete1" gr:x="0" gr:y="0" entity="ent9">
+      <Selector id="mov2#opm26#opg2#dlu3#su60" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#opm26#opg2#dlu3#su60#kcond33" name="KeyCondition1" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#opm26#opg2#dlu3#oln133" name="OKFlow126" to="mov2#opm26#okcu24" automaticCoupling="true"/>
+      <KOLink id="mov2#opm26#opg2#dlu3#kln68" name="KOFlow63" to="mov2#opm26#kocu26" automaticCoupling="true" gr:bendpoints="352,239,-328,19"/>
+    </DeleteUnit>
+    <CreateUnit id="mov2#opm26#opg2#cru14" name="Create13" gr:x="240" gr:y="55" entity="ent10">
+      <OKLink id="mov2#opm26#opg2#cru14#oln134" name="OKFlow125" to="mov2#opm26#opg2#dlu3" automaticCoupling="true"/>
+      <KOLink id="mov2#opm26#opg2#cru14#kln69" name="KOFlow62" to="mov2#opm26#kocu26" automaticCoupling="true"/>
+      <Link id="mov2#opm26#opg2#cru14#ln135" name="Flow109" to="mov2#opm26#okcu24" type="transport" validate="true">
+        <LinkParameter id="mov2#opm26#opg2#cru14#ln135#par374" name="oid_anID" source="ent8#att69Array" target="mov2#opm26#okcu24#ocp42"/>
+      </Link>
+    </CreateUnit>
+    <SelectorUnit id="mov2#opm26#opg2#seu31" name="Selector28" gr:x="60" gr:y="140" entity="ent8" distinctAttributes="ent8#att69 ent8#att70 ent8#att71 ent8#att72 ent8#att73 ent8#att74 ent8#att75 ent8#att76 ent8#att77 ent8#att78 ent8#att79 ent8#att80 ent8#att81 ent8#att82 ent8#att83 ent8#att84 ent8#att85 ent8#att86 ent8#att87 ent8#att88 ent8#att89 ent8#att90 ent8#att91 ent8#att92 ent8#att93 ent8#att94 ent8#att95 ent8#att9">
+      <Selector id="mov2#opm26#opg2#seu31#su61" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov2#opm26#opg2#seu31#su61#kcond35" name="KeyCondition17" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov2#opm26#opg2#seu31#oln135" name="OKFlow124" to="mov2#opm26#opg2#cru14">
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par375" name="anomalyprob_anomalyprob" source="ent8#att91Array" target="mov2#opm26#opg2#cru14.ent8#att91"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par376" name="dosprob_dosprob" source="ent8#att92Array" target="mov2#opm26#opg2#cru14.ent8#att92"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par377" name="dstBytes_dstBytes" source="ent8#att76Array" target="mov2#opm26#opg2#cru14.ent8#att76"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par378" name="duration_duration" source="ent8#att71Array" target="mov2#opm26#opg2#cru14.ent8#att71"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par379" name="flag_flag" source="ent8#att74Array" target="mov2#opm26#opg2#cru14.ent8#att74"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par380" name="hot_hot" source="ent8#att80Array" target="mov2#opm26#opg2#cru14.ent8#att80"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par381" name="land_land" source="ent8#att77Array" target="mov2#opm26#opg2#cru14.ent8#att77"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par382" name="loggedIn_loggedIn" source="ent8#att82Array" target="mov2#opm26#opg2#cru14.ent8#att82"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par383" name="numAccessFiles_numAccessFiles" source="ent8#att89Array" target="mov2#opm26#opg2#cru14.ent8#att89"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par384" name="numCompromised_numCompromised" source="ent8#att83Array" target="mov2#opm26#opg2#cru14.ent8#att83"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par385" name="numFailedLogins_numFailedLogins" source="ent8#att81Array" target="mov2#opm26#opg2#cru14.ent8#att81"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par386" name="numFileCreations_numFileCreations" source="ent8#att87Array" target="mov2#opm26#opg2#cru14.ent8#att87"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par387" name="numOutboundCmds_numOutboundCmds" source="ent8#att90Array" target="mov2#opm26#opg2#cru14.ent8#att90"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par388" name="numRoot_numRoot" source="ent8#att86Array" target="mov2#opm26#opg2#cru14.ent8#att86"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par389" name="numShells_numShells" source="ent8#att88Array" target="mov2#opm26#opg2#cru14.ent8#att88"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par390" name="protocolType_protocolType" source="ent8#att72Array" target="mov2#opm26#opg2#cru14.ent8#att72"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par391" name="r2lprob_r2lprob" source="ent8#att94Array" target="mov2#opm26#opg2#cru14.ent8#att94"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par392" name="rootShell_rootShell" source="ent8#att84Array" target="mov2#opm26#opg2#cru14.ent8#att84"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par393" name="scanprob_scanprob" source="ent8#att93Array" target="mov2#opm26#opg2#cru14.ent8#att93"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par394" name="Sensor_Sensore.id(TrafficoToSensore)" source="ent8#att9Array" target="mov2#opm26#opg2#cru14.rel10#role19.ent3#att13"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par395" name="service_service" source="ent8#att73Array" target="mov2#opm26#opg2#cru14.ent8#att73"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par396" name="srcBytes_srcBytes" source="ent8#att75Array" target="mov2#opm26#opg2#cru14.ent8#att75"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par397" name="suAttempted_suAttempted" source="ent8#att85Array" target="mov2#opm26#opg2#cru14.ent8#att85"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par398" name="ts_ts" source="ent8#att70Array" target="mov2#opm26#opg2#cru14.ent8#att70"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par399" name="urgent_urgent" source="ent8#att79Array" target="mov2#opm26#opg2#cru14.ent8#att79"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par400" name="wrongFragment_wrongFragment" source="ent8#att78Array" target="mov2#opm26#opg2#cru14.ent8#att78"/>
+        <LinkParameter id="mov2#opm26#opg2#seu31#oln135#par401" name="Normal_label" sourceValue="Normal" target="mov2#opm26#opg2#cru14.ent8#att95"/>
+      </OKLink>
+    </SelectorUnit>
+  </OperationUnits>
+</OperationGroup>

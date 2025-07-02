@@ -1,0 +1,40 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="230" gr:y="135" id="mov2#opm11" name="NewMessage">
+  <OperationUnits>
+    <InputCollectorUnit id="mov2#opm11#icu11" gr:x="25" gr:y="150">
+      <InputCollectorParameter id="mov2#opm11#icu11#icp7" name="Message"/>
+      <InputCollectorParameter id="mov2#opm11#icu11#icp9" name="userID"/>
+      <InputCollectorParameter id="mov2#opm11#icu11#icp13" name="EventID"/>
+      <OKLink id="mov2#opm11#icu11#oln35" name="OKFlow35" to="mov2#opm11#cru1">
+        <LinkParameter id="mov2#opm11#icu11#oln35#par135" name="userID_Persona.oid(MessageToPersona)" source="mov2#opm11#icu11#icp9" target="mov2#opm11#cru1.rel7#role13.userOID"/>
+        <LinkParameter id="mov2#opm11#icu11#oln35#par136" name="Message_testo" source="mov2#opm11#icu11#icp7" target="mov2#opm11#cru1.ent5#att18"/>
+        <LinkParameter id="mov2#opm11#icu11#oln35#par106" name="EventID_assigned_event.id(MessageToassigned_event)" source="mov2#opm11#icu11#icp13" target="mov2#opm11#cru1.rel14#role28.ent1#att2"/>
+      </OKLink>
+      <Link id="mov2#opm11#icu11#ln21" name="Flow21" to="mov2#opm11#cru8" type="transport" validate="true" gr:bendpoints="198,164,-222,-71">
+        <LinkParameter id="mov2#opm11#icu11#ln21#par108" name="EventID_assigned_event.id(NotificationToassigned_event)" source="mov2#opm11#icu11#icp13" target="mov2#opm11#cru8.rel18#role35.ent1#att2"/>
+        <LinkParameter id="mov2#opm11#icu11#ln21#par109" name="New message_description" sourceValue="New message" target="mov2#opm11#cru8.ent11#att21"/>
+        <LinkParameter id="mov2#opm11#icu11#ln21#par111" name="userID_Persona.oid(NotificationToPersona)" source="mov2#opm11#icu11#icp9" target="mov2#opm11#cru8.rel15#role30.userOID"/>
+        <LinkParameter id="mov2#opm11#icu11#ln21#par112" name="userID_Persona.oid(NotificationToPersona_2)" source="mov2#opm11#icu11#icp30" target="mov2#opm11#cru8.rel16#role32.userOID"/>
+        <LinkParameter id="mov2#opm11#icu11#ln21#par67" name="NewMessage_notiType" sourceValue="NewMessage" target="mov2#opm11#cru8.ent11#att22"/>
+      </Link>
+      <InputCollectorParameter id="mov2#opm11#icu11#icp30" name="userAssignedOID"/>
+    </InputCollectorUnit>
+    <CreateUnit gr:x="330" gr:y="170" id="mov2#opm11#cru1" name="create message" entity="ent5">
+      <OKLink id="mov2#opm11#cru1#oln28" name="OKFlow28" to="mov2#opm11#cru8" automaticCoupling="true"/>
+      <KOLink id="mov2#opm11#cru1#kln21" name="KOFlow21" to="mov2#opm11#kocu11" gr:bendpoints="298,39,-322,-76">
+        <LinkParameter id="mov2#opm11#cru1#kln21#par117" name="ERROR_Error" sourceValue="ERROR" target="mov2#opm11#kocu11#ocp6"/>
+      </KOLink>
+    </CreateUnit>
+    <OKCollectorUnit gr:x="905" gr:y="150" id="mov2#opm11#okcu9" name="OK Port9">
+      <OutputCollectorParameter id="mov2#opm11#okcu9#ocp5" name="message"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit gr:x="905" gr:y="285" id="mov2#opm11#kocu11" name="KO Port11">
+      <OutputCollectorParameter id="mov2#opm11#kocu11#ocp6" name="Error"/>
+    </KOCollectorUnit>
+    <CreateUnit gr:x="485" gr:y="285" id="mov2#opm11#cru8" name="send notification to ASop" entity="ent11">
+      <OKLink id="mov2#opm11#cru8#oln36" name="OKFlow36" to="mov2#opm11#okcu9" gr:bendpoints="131,-205,-284,30" automaticCoupling="true"/>
+      <KOLink id="mov2#opm11#cru8#kln25" name="KOFlow25" to="mov2#opm11#kocu11">
+        <LinkParameter id="mov2#opm11#cru8#kln25#par115" name="Error_Error" sourceValue="Error" target="mov2#opm11#kocu11#ocp6"/>
+      </KOLink>
+    </CreateUnit>
+  </OperationUnits>
+</OperationModule>

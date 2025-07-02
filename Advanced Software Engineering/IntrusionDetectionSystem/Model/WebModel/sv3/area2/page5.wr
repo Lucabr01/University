@@ -1,0 +1,59 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="485" gr:y="370" id="sv3#area2#page5" name="New Group" landmark="true">
+  <ContentUnits>
+    <SelectorUnit gr:x="15" gr:y="125" id="sv3#area2#page5#seu1" name="Modules" entity="Module">
+      <Link id="sv3#area2#page5#seu1#ln6" name="Flow6" to="sv3#area2#page5#enu3" type="transport" validate="true">
+        <LinkParameter id="sv3#area2#page5#seu1#ln6#par28" name="moduleName_modules [label]" source="moduleNameArray" target="sv3#area2#page5#enu3#sfld3_label"/>
+        <LinkParameter id="sv3#area2#page5#seu1#ln6#par29" name="oid_modules [output]" source="moduleOIDArray" target="sv3#area2#page5#enu3#sfld3_output"/>
+        <LinkParameter id="sv3#area2#page5#seu1#ln6#par33" name="moduleName_defaultModule [label]" source="moduleNameArray" target="sv3#area2#page5#enu3#sfld2_label"/>
+        <LinkParameter id="sv3#area2#page5#seu1#ln6#par34" name="oid_defaultModule [output]" source="moduleOIDArray" target="sv3#area2#page5#enu3#sfld2_output"/>
+      </Link>
+    </SelectorUnit>
+    <EntryUnit gr:x="0" gr:y="0" id="sv3#area2#page5#enu3" name="New Group" entity="Group" linkOrder="sv3#area2#page5#enu3#ln7">
+      <Field id="sv3#area2#page5#enu3#fld4" name="groupName" type="string" modifiable="true" attribute="groupName"/>
+      <SelectionField id="sv3#area2#page5#enu3#sfld2" name="defaultModule" type="string" role="Group2DefaultModule"/>
+      <SelectionField id="sv3#area2#page5#enu3#sfld3" name="modules" type="string" role="Group2Module"/>
+      <Link id="sv3#area2#page5#enu3#ln7" name="Create" to="sv3#area2#miu3" type="normal" validate="true">
+        <LinkParameter id="sv3#area2#page5#enu3#ln7#par30" name="groupName_groupName" source="sv3#area2#page5#enu3#fld4" target="sv3#area2#miu3.mov3#mpkg1#opm8#icu8#icp19"/>
+        <LinkParameter id="sv3#area2#page5#enu3#ln7#par31" name="modules_modules" source="sv3#area2#page5#enu3#sfld3" target="sv3#area2#miu3.mov3#mpkg1#opm8#icu8#icp20"/>
+        <LinkParameter id="sv3#area2#page5#enu3#ln7#par32" name="Key [oid]_oidGroup" source="key.groupOID" target="sv3#area2#miu3.mov3#mpkg1#opm8#icu8#icp21"/>
+      </Link>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv3#area2#page5#enu3">
+          <layout:Field field="sv3#area2#page5#enu3#fld4"/>
+          <layout:Field field="sv3#area2#page5#enu3#sfld2"/>
+          <layout:Field field="sv3#area2#page5#enu3#sfld3"/>
+          <layout:Link link="sv3#area2#page5#enu3#ln7"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

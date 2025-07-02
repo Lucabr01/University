@@ -1,0 +1,20 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="30" gr:y="515" id="sv4#area13" name="Traffic Management" landmark="true" defaultPage="sv4#area13#page9" layout:style="Copy_Of_WebRatio">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="15" gr:y="205" id="sv4#area13#miu24" action="true" moduleId="mov4#opm20">
+      <KOLink id="sv4#area13#miu24#kln46" name="KOFlow46" to="sv4#area13#page25#mssu17" codeRef="mov4#opm20#kocu18">
+        <LinkParameter id="sv4#area13#miu24#kln46#par264" name="This record has already been handled!_Shown Messages" sourceValue="This record has already been handled!" target="sv4#area13#page25#mssu17.shownMessages"/>
+      </KOLink>
+      <OKLink id="sv4#area13#miu24#oln83" name="OKFlow83" to="sv4#area12#page24#seu17" gr:bendpoints="303,17,-167,-133">
+        <LinkParameter id="sv4#area13#miu24#oln83#par267" name="eventID_KeyCondition23 [id]" source="mov4#opm20#okcu18#ocp33" target="sv4#area12#page24#seu17#su35#kcond23.ent1#att2"/>
+      </OKLink>
+      <KOLink id="sv4#area13#miu24#kln55" name="KOFlow55" to="sv4#area13#page25#mssu17" gr:bendpoints="-87,25,-192,-260;-50,242,-155,-43" codeRef="mov4#opm20#kocu20">
+        <LinkParameter id="sv4#area13#miu24#kln55#par232" name="You have too much open events!_Shown Messages" sourceValue="You have too much open events!" target="sv4#area13#page25#mssu17.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <GetUnit gr:x="260" gr:y="150" id="sv4#area13#gtu2" name="Get id" contextParameters="UserCtxParam" linkOrder="sv4#area13#gtu2#ln114">
+      <Link id="sv4#area13#gtu2#ln114" name="Flow114" to="sv4#area13#miu24" type="transport" validate="true">
+        <LinkParameter id="sv4#area13#gtu2#ln114#par266" name="UserCtxParam.matricola_userID" source="sv4#area13#gtu2.UserCtxParam" target="sv4#area13#miu24.mov4#opm20#icu20#icp43"/>
+      </Link>
+    </GetUnit>
+  </OperationUnits>
+</Area>

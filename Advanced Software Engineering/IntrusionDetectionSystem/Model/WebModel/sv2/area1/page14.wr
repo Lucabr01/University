@@ -1,0 +1,58 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#area1#page14" name="Anomalous Traffic" landmark="true" gr:x="515" gr:y="20">
+  <ContentUnits>
+    <PowerIndexUnit id="sv2#area1#page14#pwu4" name="Traffic" gr:x="0" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent9" displayAttributes="ent8#att69 ent8#att70 ent8#att71 ent8#att72 ent8#att73 ent8#att74 ent8#att95 ent9#att96" linkOrder="sv2#area1#page14#pwu4#ln55">
+      <Link id="sv2#area1#page14#pwu4#ln55" name="Details" to="sv2#area1#page17#dau5" type="normal" automaticCoupling="true" validate="true" gr:bendpoints="-160,29,145,-71"/>
+      <SortAttribute attribute="ent8#att70" order="descending"/>
+    </PowerIndexUnit>
+    <NoOpContentUnit id="sv2#area1#page14#gctu1" name="Periodical Refresh" customDescriptor="true" gr:x="35" gr:y="100" linkOrder="sv2#area1#page14#gctu1#ln102">
+      <Link id="sv2#area1#page14#gctu1#ln102" name="periodicalLink" to="sv2#area1#miu34" automaticCoupling="true" type="normal" validate="true" gr:bendpoints="50,63,50,-62" ajaxEnabled="true"/>
+    </NoOpContentUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area1#page14#pwu4">
+          <layout:Attribute attribute="ent8#att69"/>
+          <layout:Attribute attribute="ent8#att70"/>
+          <layout:Attribute attribute="ent8#att71"/>
+          <layout:Attribute attribute="ent8#att72"/>
+          <layout:Attribute attribute="ent8#att73"/>
+          <layout:Attribute attribute="ent8#att74"/>
+          <layout:Attribute attribute="ent8#att95"/>
+          <layout:Attribute attribute="ent9#att96"/>
+          <layout:Link link="sv2#area1#page14#pwu4#ln55"/>
+          <layout:Link link="sv2#area1#page14#pwu4ent8#att70"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area1#page14#gctu1" layout:unitLayout="CustomStyle/PeriodicalPageRefresh">
+          <layout:Link link="sv2#area1#page14#gctu1#ln102"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

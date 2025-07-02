@@ -1,0 +1,30 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="190" gr:y="0" id="mov3#mpkg2#opm7" name="Register opAS">
+  <OperationUnits>
+    <InputCollectorUnit id="mov3#mpkg2#opm7#icu7" gr:x="20" gr:y="115">
+      <OKLink id="mov3#mpkg2#opm7#icu7#oln17" name="OKFlow17" to="mov3#mpkg2#opm7#cru3">
+        <LinkParameter id="mov3#mpkg2#opm7#icu7#oln17#par61" name="DataNascita" source="mov3#mpkg2#opm7#icu7#icp15" target="mov3#mpkg2#opm7#cru3.User#att1"/>
+        <LinkParameter id="mov3#mpkg2#opm7#icu7#oln17#par62" name="cognome" source="mov3#mpkg2#opm7#icu7#icp16" target="mov3#mpkg2#opm7#cru3.email"/>
+        <LinkParameter id="mov3#mpkg2#opm7#icu7#oln17#par63" name="nome" source="mov3#mpkg2#opm7#icu7#icp17" target="mov3#mpkg2#opm7#cru3.userName"/>
+        <LinkParameter id="mov3#mpkg2#opm7#icu7#oln17#par64" name="password" source="mov3#mpkg2#opm7#icu7#icp18" target="mov3#mpkg2#opm7#cru3.password"/>
+        <LinkParameter id="mov3#mpkg2#opm7#icu7#oln17#par65" name="2_Group.oid(defaultGroup)" sourceValue="5" target="mov3#mpkg2#opm7#cru3.User2DefaultGroup.groupOID"/>
+        <LinkParameter id="mov3#mpkg2#opm7#icu7#oln17#par66" name="2_Group.oid(groups)" sourceValue="5" target="mov3#mpkg2#opm7#cru3.User2Group.groupOID"/>
+        <LinkParameter id="mov3#mpkg2#opm7#icu7#oln17#par50" name="UserName_userName" source="mov3#mpkg2#opm7#icu7#icp5" target="mov3#mpkg2#opm7#cru3.User#att97"/>
+      </OKLink>
+      <InputCollectorParameter id="mov3#mpkg2#opm7#icu7#icp15" name="DataNascita"/>
+      <InputCollectorParameter id="mov3#mpkg2#opm7#icu7#icp16" name="cognome"/>
+      <InputCollectorParameter id="mov3#mpkg2#opm7#icu7#icp17" name="nome"/>
+      <InputCollectorParameter id="mov3#mpkg2#opm7#icu7#icp18" name="password"/>
+      <InputCollectorParameter id="mov3#mpkg2#opm7#icu7#icp5" name="UserName"/>
+    </InputCollectorUnit>
+    <CreateUnit gr:x="370" gr:y="140" id="mov3#mpkg2#opm7#cru3" name="opAS" entity="ent6">
+      <OKLink id="mov3#mpkg2#opm7#cru3#oln18" name="OKFlow18" to="mov3#mpkg2#opm7#okcu5" automaticCoupling="true"/>
+      <KOLink id="mov3#mpkg2#opm7#cru3#kln14" name="KOFlow14" to="mov3#mpkg2#opm7#kocu7" automaticCoupling="true"/>
+    </CreateUnit>
+    <KOCollectorUnit gr:x="650" gr:y="220" id="mov3#mpkg2#opm7#kocu7" name="KO Port7">
+      <OutputCollectorParameter id="mov3#mpkg2#opm7#kocu7#ocp10" name="Message"/>
+    </KOCollectorUnit>
+    <OKCollectorUnit gr:x="650" gr:y="120" id="mov3#mpkg2#opm7#okcu5" name="OK Port5">
+      <OutputCollectorParameter id="mov3#mpkg2#opm7#okcu5#ocp9" name="Message"/>
+    </OKCollectorUnit>
+  </OperationUnits>
+</OperationModule>

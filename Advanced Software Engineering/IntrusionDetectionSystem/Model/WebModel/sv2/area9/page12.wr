@@ -1,0 +1,27 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv2#area9#page12" name="My Account" layout:style="Copy_Of_WebRatio">
+  <ContentUnits>
+    <GetUnit id="sv2#area9#page12#gtu6" name="Get userID" gr:x="75" gr:y="130" contextParameters="UserCtxParam">
+      <Link id="sv2#area9#page12#gtu6#ln68" name="Flow22" to="sv2#area9#page12#qu3" type="transport" validate="true">
+        <LinkParameter id="sv2#area9#page12#gtu6#ln68#par182" name="UserCtxParam.oid_userID" source="sv2#area9#page12#gtu6.UserCtxParam" target="sv2#area9#page12#qu3.sv2#area9#page12#qu3#qi2"/>
+      </Link>
+      <Link id="sv2#area9#page12#gtu6#ln69" name="Flow59" to="sv2#area9#miu19" type="transport" validate="true">
+        <LinkParameter id="sv2#area9#page12#gtu6#ln69#par183" name="UserCtxParam.oid_to" source="sv2#area9#page12#gtu6.UserCtxParam" target="sv2#area9#miu19.mov2#opm16#icu16#icp36"/>
+      </Link>
+      <Link id="sv2#area9#page12#gtu6#ln71" name="Flow71" to="sv2#area9#page12#dau3" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv2#area9#page12#gtu6#ln27" name="Flow27" to="sv2#area9#page12#qu7" type="transport" validate="true">
+        <LinkParameter id="sv2#area9#page12#gtu6#ln27#par139" name="UserCtxParam.oid_idsopID" source="sv2#area9#page12#gtu6.UserCtxParam" target="sv2#area9#page12#qu7.sv2#area9#page12#qu7#qi4"/>
+      </Link>
+    </GetUnit>
+    <QueryUnit id="sv2#area9#page12#qu3" name="Alert" linkOrder="sv2#area9#page12#qu3#ln70" gr:x="100" gr:y="0" mode="select" language="SQL" db="db1">
+      <QueryText xml:space="preserve">SELECT CONCAT('You have ', COUNT(*), ' unread notifications')
+FROM   public.notification AS n
+WHERE  n.to_pp   = :userID
+  AND  n.checked = FALSE;
+</QueryText>      <QueryInput id="sv2#area9#page12#qu3#qi2" name="userID" required="true" type="integer"/>      <QueryOutput id="sv2#area9#page12#qu3#qo5" name="Welcome back!" type="string"/>      <Link id="sv2#area9#page12#qu3#ln70" name="check" to="sv2#area9#miu19" type="normal" automaticCoupling="true" validate="true"/>    </QueryUnit>    <DataUnit gr:x="35" gr:y="275" id="sv2#area9#page12#dau3" name="My Data" entity="User" displayAll="true">      <Selector id="sv2#area9#page12#dau3#su24" defaultPolicy="fill" booleanOperator="and">        <KeyCondition id="sv2#area9#page12#dau3#su24#kcond15" name="KeyCondition15" predicate="in" implied="false"/>      </Selector>    </DataUnit>    <QueryUnit gr:x="170" gr:y="325" id="sv2#area9#page12#qu7" name="MyStats" mode="select" language="SQL" db="db1">      <QueryText xml:space="preserve">SELECT
+  COUNT(e.id)                          AS total_assigned_events,
+  SUM(CASE WHEN e.closed THEN 1 ELSE 0 END)      AS closed_events,
+  SUM(CASE WHEN NOT e.closed THEN 1 ELSE 0 END)  AS open_events
+FROM   public.assigned_event ae
+JOIN   public.evento         e  ON e.id        = ae.evento_id
+WHERE  ae.assigned_op = :idsopID;
+</QueryText>      <QueryInput id="sv2#area9#page12#qu7#qi4" name="idsopID" required="true" type="integer"/>      <QueryOutput id="sv2#area9#page12#qu7#qo8" name="total_assigned_events" type="string"/>      <QueryOutput id="sv2#area9#page12#qu7#qo9" name="closed_events" type="string"/>      <QueryOutput id="sv2#area9#page12#qu7#qo10" name="open_events" type="string"/>    </QueryUnit>  </ContentUnits>  <layout:Grid containerType="grid">    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv2#area9#page12#qu3">          <layout:Link link="sv2#area9#page12#qu3#ln70"/>        </layout:Unit>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv2#area9#page12#dau3">          <layout:Attribute attribute="userName"/>          <layout:Attribute attribute="password"/>          <layout:Attribute attribute="email"/>          <layout:Attribute attribute="User#att1"/>          <layout:Attribute attribute="User#att97"/>        </layout:Unit>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv2#area9#page12#qu7"/>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12"/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>  </layout:Grid></Page>

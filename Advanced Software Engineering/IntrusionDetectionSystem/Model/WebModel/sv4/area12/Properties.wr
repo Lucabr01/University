@@ -1,0 +1,36 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv4#area12" name="Event Managment" defaultPage="sv4#area12#page23" landmark="true" layout:style="Copy_Of_WebRatio" gr:x="530" gr:y="710">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv4#area12#miu22" gr:x="415" gr:y="620" action="true" moduleId="mov2#opm11">
+      <OKLink id="sv4#area12#miu22#oln72" name="OKFlow34" to="sv4#area12#page23#mssu13">
+        <LinkParameter id="sv4#area12#miu22#oln72#par217" name="Your message has been sent!_Shown Messages" target="sv4#area12#page23#mssu13.shownMessages" sourceValue="Your message has been sent!"/>
+      </OKLink>
+      <KOLink id="sv4#area12#miu22#kln39" name="KOFlow28" to="sv4#area12#page23#mssu14">
+        <LinkParameter id="sv4#area12#miu22#kln39#par220" name="Error_Shown Messages" target="sv4#area12#page23#mssu14.shownMessages" sourceValue="Error"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="445" gr:y="15" id="sv4#area12#miu23" action="true" moduleId="mov4#opm18">
+      <OKLink id="sv4#area12#miu23#oln73" name="OKFlow73" to="sv4#area12#page22#seu16" gr:bendpoints="166,-78,-394,-243">
+        <LinkParameter id="sv4#area12#miu23#oln73#par231" name="evvid_KeyCondition10 [id]" source="mov4#opm18#okcu16#ocp28" target="sv4#area12#page22#seu16#su32#kcond22.ent1#att2"/>
+      </OKLink>
+      <KOLink id="sv4#area12#miu23#kln40" name="KOFlow40" to="sv4#area12#page24#seu17" gr:bendpoints="-199,-70,261,-165">
+        <LinkParameter id="sv4#area12#miu23#kln40#par233" name="evid_KeyCondition23 [id]" source="mov4#opm18#kocu16#ocp29" target="sv4#area12#page24#seu17#su35#kcond23.ent1#att2"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="50" gr:y="635" id="sv4#area12#miu25" action="true" moduleId="mov4#opm19">
+      <KOLink id="sv4#area12#miu25#kln42" name="KOFlow42" to="sv4#area12#page24#mssu15" gr:bendpoints="98,-189,73,166">
+        <LinkParameter id="sv4#area12#miu25#kln42#par245" name="Error_Shown Messages" sourceValue="The event has already been closed!" target="sv4#area12#page24#mssu15.shownMessages"/>
+      </KOLink>
+      <OKLink id="sv4#area12#miu25#oln79" name="OKFlow79" to="sv4#area12#page23#mssu13">
+        <LinkParameter id="sv4#area12#miu25#oln79#par252" name="Event closed!_Shown Messages" sourceValue="Event closed!" target="sv4#area12#page23#mssu13.shownMessages"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="1200" gr:y="315" id="sv4#area12#miu27" action="true" moduleId="mov4#opm21">
+      <OKLink id="sv4#area12#miu27#oln89" name="OKFlow89" to="sv4#area12#page23#mssu13">
+        <LinkParameter id="sv4#area12#miu27#oln89#par285" name="Event closed!_Shown Messages" sourceValue="Event closed!" target="sv4#area12#page23#mssu13.shownMessages"/>
+      </OKLink>
+      <KOLink id="sv4#area12#miu27#kln48" name="KOFlow48" to="sv4#area12#page22#mssu16">
+        <LinkParameter id="sv4#area12#miu27#kln48#par286" name="This event is already closed!_Shown Messages" sourceValue="This event is already closed!" target="sv4#area12#page22#mssu16.shownMessages"/>
+      </KOLink>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+</Area>

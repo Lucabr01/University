@@ -1,0 +1,25 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="0" gr:y="0" id="mov3#mpkg1#opm8" name="Create Groups">
+  <OperationUnits>
+    <InputCollectorUnit id="mov3#mpkg1#opm8#icu8" gr:x="60" gr:y="230">
+      <InputCollectorParameter id="mov3#mpkg1#opm8#icu8#icp21" name="oidGroup"/>
+      <InputCollectorParameter id="mov3#mpkg1#opm8#icu8#icp20" name="modules"/>
+      <InputCollectorParameter id="mov3#mpkg1#opm8#icu8#icp19" name="groupName"/>
+      <OKLink id="mov3#mpkg1#opm8#icu8#oln4" name="OKFlow4" to="mov3#mpkg1#opm8#cru4">
+        <LinkParameter id="mov3#mpkg1#opm8#icu8#oln4#par11" name="groupName_groupName" source="mov3#mpkg1#opm8#icu8#icp19" target="mov3#mpkg1#opm8#cru4.groupName"/>
+        <LinkParameter id="mov3#mpkg1#opm8#icu8#oln4#par12" name="modules_Module.oid(defaultModule)" source="mov3#mpkg1#opm8#icu8#icp20" target="mov3#mpkg1#opm8#cru4.Group2DefaultModule.moduleOID"/>
+        <LinkParameter id="mov3#mpkg1#opm8#icu8#oln4#par13" name="modules_Module.oid(modules)" source="mov3#mpkg1#opm8#icu8#icp20" target="mov3#mpkg1#opm8#cru4.Group2Module.moduleOID"/>
+        <LinkParameter id="mov3#mpkg1#opm8#icu8#oln4#par14" name="oidGroup_oid" source="mov3#mpkg1#opm8#icu8#icp21" target="mov3#mpkg1#opm8#cru4.groupOID"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <CreateUnit gr:x="435" gr:y="250" id="mov3#mpkg1#opm8#cru4" name="Create Group" entity="Group">
+      <OKLink id="mov3#mpkg1#opm8#cru4#oln5" name="OKFlow5" to="mov3#mpkg1#opm8#okcu6" automaticCoupling="true"/>
+      <KOLink id="mov3#mpkg1#opm8#cru4#kln4" name="KOFlow4" to="mov3#mpkg1#opm8#kocu8" automaticCoupling="true"/>
+    </CreateUnit>
+    <OKCollectorUnit gr:x="705" gr:y="210" id="mov3#mpkg1#opm8#okcu6" name="OK Port6">
+      <OutputCollectorParameter id="mov3#mpkg1#opm8#okcu6#ocp11" name="Message"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit gr:x="705" gr:y="340" id="mov3#mpkg1#opm8#kocu8" name="KO Port8">
+      <OutputCollectorParameter id="mov3#mpkg1#opm8#kocu8#ocp12" name="Message"/>
+    </KOCollectorUnit>
+  </OperationUnits>
+</OperationModule>

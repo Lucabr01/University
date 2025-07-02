@@ -1,0 +1,19 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv2#area5#page15" name="Sensors" ajaxEnabled="false" layout:loginPage="Copy_Of_WebRatio/Default" layout:pageLayout="Copy_Of_WebRatio/Basic" layout:style="Copy_Of_WebRatio">
+  <ContentUnits>
+    <IndexUnit gr:x="0" gr:y="0" id="sv2#area5#page15#inu4" name="Sensors" entity="ent3" displayAttributes="ent3#att13 ent3#att14" linkOrder="sv2#area5#page15#inu4#ln96">
+      <Link id="sv2#area5#page15#inu4#ln96" name="Switch" to="sv2#area5#miu5" type="normal" validate="true">
+        <LinkParameter id="sv2#area5#page15#inu4#ln96#par249" name="id_SensorID" source="data[].ent3#att13" target="sv2#area5#miu5.mov2#opm4#icu4#icp6"/>
+      </Link>
+    </IndexUnit>
+    <MultiMessageUnit gr:x="55" gr:y="140" id="sv2#area5#page15#mssu20" name="Error"/>
+    <QueryUnit gr:x="10" gr:y="220" id="sv2#area5#page15#qu21" name="Sensors rule" mode="select" language="SQL" db="db1">
+      <QueryText xml:space="preserve">SELECT
+  CASE
+    WHEN a.sensorsAllOff THEN
+      'Sensors can be turned off simultaneously'
+    ELSE
+      'Sensors cannot be turned off simultaneously'
+  END AS message
+FROM   public.AdminStuff as a
+where a.oid = 1;
+</QueryText>      <QueryOutput id="sv2#area5#page15#qu21#qo31" name="Status" type="string"/>    </QueryUnit>  </ContentUnits>  <layout:Grid containerType="grid">    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv2#area5#page15#inu4">          <layout:Attribute attribute="ent3#att13"/>          <layout:Attribute attribute="ent3#att14"/>          <layout:Link link="sv2#area5#page15#inu4#ln96"/>        </layout:Unit>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv2#area5#page15#mssu20"/>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv2#area5#page15#qu21"/>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>  </layout:Grid></Page>

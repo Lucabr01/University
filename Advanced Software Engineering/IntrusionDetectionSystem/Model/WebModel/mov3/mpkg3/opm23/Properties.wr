@@ -1,0 +1,56 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="140" gr:y="0" id="mov3#mpkg3#opm23" name="SetSensors">
+  <OperationUnits>
+    <InputCollectorUnit id="mov3#mpkg3#opm23#icu23" gr:x="35" gr:y="140" linkOrder="mov3#mpkg3#opm23#icu23#ln99">
+      <InputCollectorParameter id="mov3#mpkg3#opm23#icu23#icp50" name="id"/>
+      <Link id="mov3#mpkg3#opm23#icu23#ln99" name="Flow99" to="mov3#mpkg3#opm23#seu22" type="transport" validate="true">
+        <LinkParameter id="mov3#mpkg3#opm23#icu23#ln99#par304" name="id_KeyCondition36 [oid]" source="mov3#mpkg3#opm23#icu23#icp50" target="mov3#mpkg3#opm23#seu22#su49#kcond36.ent12#att16"/>
+      </Link>
+      <OKLink id="mov3#mpkg3#opm23#icu23#oln119" name="OKFlow119" to="mov3#mpkg3#opm23#qu24" automaticCoupling="true"/>
+    </InputCollectorUnit>
+    <SelectorUnit gr:x="355" gr:y="135" id="mov3#mpkg3#opm23#seu22" name="Selector" entity="ent12" distinctAttributes="ent12#att16">
+      <Selector id="mov3#mpkg3#opm23#seu22#su49" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov3#mpkg3#opm23#seu22#su49#acond12" name="AttCondition12" predicate="eq" booleanOperator="or" implied="false" attributes="ent12#att26" value="1"/>
+        <KeyCondition id="mov3#mpkg3#opm23#seu22#su49#kcond36" name="KeyCondition36" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov3#mpkg3#opm23#seu22#oln96" name="OKFlow96" to="mov3#mpkg3#opm23#inn10">
+        <LinkParameter id="mov3#mpkg3#opm23#seu22#oln96#par293" name="oid_Input" source="ent12#att16Array" target="mov3#mpkg3#opm23#inn10.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <ModifyUnit gr:x="810" gr:y="150" id="mov3#mpkg3#opm23#mfu9" name="Update9" entity="ent12">
+      <Selector id="mov3#mpkg3#opm23#mfu9#su50" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov3#mpkg3#opm23#mfu9#su50#acond13" name="AttCondition13" predicate="eq" booleanOperator="or" implied="false" attributes="ent12#att16" value="1"/>
+      </Selector>
+      <OKLink id="mov3#mpkg3#opm23#mfu9#oln95" name="OKFlow95" to="mov3#mpkg3#opm23#okcu21" automaticCoupling="true"/>
+    </ModifyUnit>
+    <IsNotNullUnit gr:x="575" gr:y="190" id="mov3#mpkg3#opm23#inn10" name="If sensorsalloff true" emptyStringAsNull="true">
+      <OKLink id="mov3#mpkg3#opm23#inn10#oln97" name="OKFlow97" to="mov3#mpkg3#opm23#mfu9">
+        <LinkParameter id="mov3#mpkg3#opm23#inn10#oln97#par299" name="False_sensorsalloff" sourceValue="False" target="mov3#mpkg3#opm23#mfu9.ent12#att26"/>
+      </OKLink>
+      <KOLink id="mov3#mpkg3#opm23#inn10#kln50" name="KOFlow50" to="mov3#mpkg3#opm23#mfu10" gr:bendpoints="120,29,-110,49">
+        <LinkParameter id="mov3#mpkg3#opm23#inn10#kln50#par298" name="True_sensorsalloff" sourceValue="True" target="mov3#mpkg3#opm23#mfu10.ent12#att26"/>
+      </KOLink>
+    </IsNotNullUnit>
+    <OKCollectorUnit gr:x="1095" gr:y="170" id="mov3#mpkg3#opm23#okcu21" name="OK Port21"/>
+    <ModifyUnit id="mov3#mpkg3#opm23#mfu10" name="Update9" gr:x="820" gr:y="285" entity="ent12">
+      <Selector id="mov3#mpkg3#opm23#mfu10#su52" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov3#mpkg3#opm23#mfu10#su52#acond15" name="AttCondition13" predicate="eq" booleanOperator="or" implied="false" attributes="ent12#att16" value="1"/>
+      </Selector>
+      <OKLink id="mov3#mpkg3#opm23#mfu10#oln99" name="OKFlow95" to="mov3#mpkg3#opm23#okcu21" automaticCoupling="true"/>
+    </ModifyUnit>
+    <KOCollectorUnit gr:x="1095" gr:y="365" id="mov3#mpkg3#opm23#kocu22" name="atleast">
+      <OutputCollectorParameter id="mov3#mpkg3#opm23#kocu22#ocp37" name="mess"/>
+    </KOCollectorUnit>
+    <QueryUnit id="mov3#mpkg3#opm23#qu24" name="check" gr:x="280" gr:y="285" mode="select" language="SQL" db="db1">
+      <QueryOutput id="mov3#mpkg3#opm23#qu24#qo33" name="res" type="boolean"/>
+      <QueryText xml:space="preserve">SELECT
+  CASE
+    WHEN NOT EXISTS (
+           SELECT 1
+           FROM   public.sensore
+           WHERE  attivo = TRUE
+         )
+    THEN TRUE
+    ELSE NULL
+  END AS all_sensors_off;
+
+</QueryText>      <OKLink id="mov3#mpkg3#opm23#qu24#oln118" name="OKFlow115" to="mov3#mpkg3#opm23#inn16">        <LinkParameter id="mov3#mpkg3#opm23#qu24#oln118#par315" name="res_Input" source="data[].res" target="mov3#mpkg3#opm23#inn16.isnotnull"/>      </OKLink>    </QueryUnit>    <IsNotNullUnit id="mov3#mpkg3#opm23#inn16" name="Is Not Null" gr:x="295" gr:y="410" emptyStringAsNull="true">      <OKLink id="mov3#mpkg3#opm23#inn16#oln120" name="OKFlow120" to="mov3#mpkg3#opm23#kocu22" automaticCoupling="true"/>      <KOLink id="mov3#mpkg3#opm23#inn16#kln59" name="KOFlow59" to="mov3#mpkg3#opm23#seu22" automaticCoupling="true"/>    </IsNotNullUnit>  </OperationUnits></OperationModule>

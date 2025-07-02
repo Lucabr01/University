@@ -1,0 +1,26 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="155" gr:y="310" id="sv4#area13#page25" name="Record Data">
+  <ContentUnits>
+    <DataUnit gr:x="125" gr:y="0" id="sv4#area13#page25#dau7" name="Traffic Details" entity="ent9" displayAttributes="ent8#att69 ent8#att70 ent8#att71 ent8#att72 ent8#att73 ent8#att74 ent8#att75 ent8#att76 ent8#att77 ent8#att78 ent8#att79 ent8#att80 ent8#att81 ent8#att82 ent8#att83 ent8#att84 ent8#att85 ent8#att86 ent8#att87 ent8#att88 ent8#att89 ent8#att90 ent8#att91 ent8#att92 ent8#att93 ent8#att94 ent8#att95 ent8#att9" linkOrder="sv4#area13#page25#dau7#ln113">
+      <Selector id="sv4#area13#page25#dau7#su40" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv4#area13#page25#dau7#su40#kcond28" name="KeyCondition28" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv4#area13#page25#dau7#ln108" name="Flow108" to="sv4#area13#page25#qu16" type="transport" validate="true">
+        <LinkParameter id="sv4#area13#page25#dau7#ln108#par258" name="oid_trafficID" source="data.ent8#att69" target="sv4#area13#page25#qu16.sv4#area13#page25#qu16#qi14"/>
+      </Link>
+      <Link id="sv4#area13#page25#dau7#ln113" name="Handle it" to="sv4#area13#miu24" type="normal" validate="true" gr:bendpoints="-138,-100,127,55">
+        <LinkParameter id="sv4#area13#page25#dau7#ln113#par265" name="oid_TrafficID" source="data.ent8#att69" target="sv4#area13#miu24.mov4#opm20#icu20#icp42"/>
+      </Link>
+    </DataUnit>
+    <QueryUnit id="sv4#area13#page25#qu16" name="Handling status" gr:x="135" gr:y="170" mode="select" language="SQL" db="db1">
+      <QueryInput id="sv4#area13#page25#qu16#qi14" name="trafficID" required="true" type="integer"/>
+      <QueryOutput id="sv4#area13#page25#qu16#qo19" name="Status" type="string"/>
+      <QueryText xml:space="preserve">SELECT CASE
+         WHEN EXISTS (
+           SELECT 1
+           FROM   public.evento e
+           WHERE  e.data = :trafficID
+         )
+         THEN 'This record has already been handled'
+         ELSE 'This record is not currently being handled'
+       END AS message;
+</QueryText>    </QueryUnit>    <MultiMessageUnit gr:x="0" gr:y="150" id="sv4#area13#page25#mssu17" name="Error"/>  </ContentUnits>  <layout:Grid containerType="grid">    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv4#area13#page25#dau7">          <layout:Attribute attribute="ent8#att69"/>          <layout:Attribute attribute="ent8#att70"/>          <layout:Attribute attribute="ent8#att71"/>          <layout:Attribute attribute="ent8#att72"/>          <layout:Attribute attribute="ent8#att73"/>          <layout:Attribute attribute="ent8#att74"/>          <layout:Attribute attribute="ent8#att75"/>          <layout:Attribute attribute="ent8#att76"/>          <layout:Attribute attribute="ent8#att77"/>          <layout:Attribute attribute="ent8#att78"/>          <layout:Attribute attribute="ent8#att79"/>          <layout:Attribute attribute="ent8#att80"/>          <layout:Attribute attribute="ent8#att81"/>          <layout:Attribute attribute="ent8#att82"/>          <layout:Attribute attribute="ent8#att83"/>          <layout:Attribute attribute="ent8#att84"/>          <layout:Attribute attribute="ent8#att85"/>          <layout:Attribute attribute="ent8#att86"/>          <layout:Attribute attribute="ent8#att87"/>          <layout:Attribute attribute="ent8#att88"/>          <layout:Attribute attribute="ent8#att89"/>          <layout:Attribute attribute="ent8#att90"/>          <layout:Attribute attribute="ent8#att91"/>          <layout:Attribute attribute="ent8#att92"/>          <layout:Attribute attribute="ent8#att93"/>          <layout:Attribute attribute="ent8#att94"/>          <layout:Attribute attribute="ent8#att95"/>          <layout:Attribute attribute="ent8#att9"/>          <layout:Link link="sv4#area13#page25#dau7#ln113"/>        </layout:Unit>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv4#area13#page25#qu16"/>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>    <layout:Row>      <layout:Cell colspan="12">        <layout:Unit unitId="sv4#area13#page25#mssu17"/>      </layout:Cell>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>      <layout:Cell/>    </layout:Row>  </layout:Grid></Page>

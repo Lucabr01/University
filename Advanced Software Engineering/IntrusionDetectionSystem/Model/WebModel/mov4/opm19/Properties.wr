@@ -1,0 +1,43 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="330" gr:y="255" id="mov4#opm19" name="Close Event">
+  <OperationUnits>
+    <InputCollectorUnit id="mov4#opm19#icu19" gr:x="30" gr:y="100">
+      <InputCollectorParameter id="mov4#opm19#icu19#icp39" name="eventID"/>
+      <OKLink id="mov4#opm19#icu19#oln74" name="OKFlow74" to="mov4#opm19#seu18">
+        <LinkParameter id="mov4#opm19#icu19#oln74#par239" name="eventID_KeyCondition26 [id]" source="mov4#opm19#icu19#icp39" target="mov4#opm19#seu18#su38#kcond26.ent1#att2"/>
+      </OKLink>
+      <Link id="mov4#opm19#icu19#ln89" name="Flow89" to="mov4#opm19#mfu6" type="transport" validate="true" gr:bendpoints="320,-12,-245,-87">
+        <LinkParameter id="mov4#opm19#icu19#ln89#par241" name="True_closed" sourceValue="True" target="mov4#opm19#mfu6.ent1#att4"/>
+        <LinkParameter id="mov4#opm19#icu19#ln89#par242" name="_commento" target="mov4#opm19#mfu6.ent1#att6" source="mov4#opm19#icu19#icp40"/>
+        <LinkParameter id="mov4#opm19#icu19#ln89#par243" name="eventID_KeyCondition27 [id]" source="mov4#opm19#icu19#icp39" target="mov4#opm19#mfu6#su39#kcond27.ent1#att2"/>
+        <LinkParameter id="mov4#opm19#icu19#ln89#par244" name="ts_tsClosed" source="mov4#opm19#icu19#icp41" target="mov4#opm19#mfu6.ent1#att5"/>
+      </Link>
+      <InputCollectorParameter id="mov4#opm19#icu19#icp40" name="comm"/>
+      <InputCollectorParameter id="mov4#opm19#icu19#icp41" name="ts"/>
+    </InputCollectorUnit>
+    <SelectorUnit gr:x="340" gr:y="175" id="mov4#opm19#seu18" name="Selector18" entity="ent1" distinctAttributes="ent1#att2">
+      <Selector id="mov4#opm19#seu18#su38" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov4#opm19#seu18#su38#kcond26" name="KeyCondition26" predicate="in" implied="false"/>
+        <AttributesCondition id="mov4#opm19#seu18#su38#acond4" name="AttCondition4" predicate="null" booleanOperator="and" implied="false" attributes="ent1#att5"/>
+      </Selector>
+      <OKLink id="mov4#opm19#seu18#oln75" name="OKFlow75" to="mov4#opm19#inn6">
+        <LinkParameter id="mov4#opm19#seu18#oln75#par240" name="id_Input" source="ent1#att2Array" target="mov4#opm19#inn6.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <IsNotNullUnit gr:x="575" gr:y="305" id="mov4#opm19#inn6" name="Is Not Null6" emptyStringAsNull="true">
+      <KOLink id="mov4#opm19#inn6#kln41" name="KOFlow41" to="mov4#opm19#kocu17" automaticCoupling="true"/>
+      <OKLink id="mov4#opm19#inn6#oln77" name="OKFlow77" to="mov4#opm19#mfu6" automaticCoupling="true"/>
+    </IsNotNullUnit>
+    <KOCollectorUnit gr:x="975" gr:y="300" id="mov4#opm19#kocu17" name="KO Port17">
+      <OutputCollectorParameter id="mov4#opm19#kocu17#ocp30" name="mess"/>
+    </KOCollectorUnit>
+    <OKCollectorUnit gr:x="975" gr:y="115" id="mov4#opm19#okcu17" name="OK Port17">
+      <OutputCollectorParameter id="mov4#opm19#okcu17#ocp31" name="mess"/>
+    </OKCollectorUnit>
+    <ModifyUnit gr:x="665" gr:y="170" id="mov4#opm19#mfu6" name="Update6" entity="ent1">
+      <Selector id="mov4#opm19#mfu6#su39" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov4#opm19#mfu6#su39#kcond27" name="KeyCondition27" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov4#opm19#mfu6#oln78" name="OKFlow78" to="mov4#opm19#okcu17" automaticCoupling="true"/>
+    </ModifyUnit>
+  </OperationUnits>
+</OperationModule>

@@ -1,0 +1,72 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="475" gr:y="115" id="mov4#opm20" name="Handle it">
+  <OperationUnits>
+    <InputCollectorUnit id="mov4#opm20#icu20" gr:x="30" gr:y="60" linkOrder="mov4#opm20#icu20#ln86 mov4#opm20#icu20#ln91">
+      <InputCollectorParameter id="mov4#opm20#icu20#icp42" name="TrafficID"/>
+      <InputCollectorParameter id="mov4#opm20#icu20#icp43" name="userID"/>
+      <Link id="mov4#opm20#icu20#ln111" name="Flow111" to="mov4#opm20#cru7" type="transport" validate="true">
+        <LinkParameter id="mov4#opm20#icu20#ln111#par261" name="userID_Operatoreas.matricola(EventoToOperatoreas)" source="mov4#opm20#icu20#icp43" target="mov4#opm20#cru7.rel3#role5.userOID"/>
+        <LinkParameter id="mov4#opm20#icu20#ln111#par262" name="TrafficID_Trafficoanomalo.oid(EventoToTrafficoanomalo)" source="mov4#opm20#icu20#icp42" target="mov4#opm20#cru7.rel9#role17.ent8#att69"/>
+      </Link>
+      <Link id="mov4#opm20#icu20#ln86" name="Flow86" to="mov4#opm20#seu20" type="transport" validate="true">
+        <LinkParameter id="mov4#opm20#icu20#ln86#par172" name="TrafficID_AttCondition7" source="mov4#opm20#icu20#icp42" target="mov4#opm20#seu20#su42#acond7"/>
+      </Link>
+      <OKLink id="mov4#opm20#icu20#oln108" name="OKFlow108" to="mov4#opm20#seu26" automaticCoupling="true"/>
+      <Link id="mov4#opm20#icu20#ln91" name="Flow91" to="mov4#opm20#qu19" type="transport" validate="true" gr:bendpoints="85,464,-340,114;388,468,-37,118">
+        <LinkParameter id="mov4#opm20#icu20#ln91#par219" name="userID_userID" source="mov4#opm20#icu20#icp43" target="mov4#opm20#qu19.mov4#opm20#qu19#qi16"/>
+      </Link>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="1050" gr:y="50" id="mov4#opm20#okcu18" name="OK Port18">
+      <OutputCollectorParameter id="mov4#opm20#okcu18#ocp33" name="eventID"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit gr:x="1050" gr:y="255" id="mov4#opm20#kocu18" name="KO Port18">
+      <OutputCollectorParameter id="mov4#opm20#kocu18#ocp32" name="message"/>
+    </KOCollectorUnit>
+    <SelectorUnit gr:x="350" gr:y="200" id="mov4#opm20#seu20" name="Select" entity="ent1" distinctAttributes="ent1#att2">
+      <Selector id="mov4#opm20#seu20#su42" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov4#opm20#seu20#su42#acond7" name="AttCondition7" predicate="eq" booleanOperator="or" implied="false" attributes="ent1#att10"/>
+      </Selector>
+      <OKLink id="mov4#opm20#seu20#oln76" name="OKFlow76" to="mov4#opm20#inn7">
+        <LinkParameter id="mov4#opm20#seu20#oln76#par260" name="id_Input" source="ent1#att2Array" target="mov4#opm20#inn7.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <IsNotNullUnit gr:x="545" gr:y="190" id="mov4#opm20#inn7" name="Is Not Null7">
+      <KOLink id="mov4#opm20#inn7#kln44" name="KOFlow44" to="mov4#opm20#cru7" automaticCoupling="true"/>
+      <OKLink id="mov4#opm20#inn7#oln81" name="OKFlow81" to="mov4#opm20#kocu18" automaticCoupling="true" gr:bendpoints="242,50,-308,-30"/>
+    </IsNotNullUnit>
+    <CreateUnit gr:x="750" gr:y="65" id="mov4#opm20#cru7" name="Create7" entity="ent1">
+      <OKLink id="mov4#opm20#cru7#oln82" name="OKFlow82" to="mov4#opm20#okcu18">
+        <LinkParameter id="mov4#opm20#cru7#oln82#par263" name="id_eventID" source="ent1#att2Array" target="mov4#opm20#okcu18#ocp33"/>
+      </OKLink>
+      <KOLink id="mov4#opm20#cru7#kln45" name="KOFlow45" to="mov4#opm20#kocu18" automaticCoupling="true"/>
+    </CreateUnit>
+    <KOCollectorUnit gr:x="1050" gr:y="465" id="mov4#opm20#kocu20" name="troppi">
+      <OutputCollectorParameter id="mov4#opm20#kocu20#ocp2" name="mess"/>
+    </KOCollectorUnit>
+    <IsNotNullUnit id="mov4#opm20#inn13" name="Is Not Null" gr:x="315" gr:y="500">
+      <KOLink id="mov4#opm20#inn13#kln52" name="KOFlow52" to="mov4#opm20#seu20" automaticCoupling="true" gr:bendpoints="-139,-140,-189,140"/>
+      <OKLink id="mov4#opm20#inn13#oln111" name="OKFlow111" to="mov4#opm20#qu19" automaticCoupling="true"/>
+    </IsNotNullUnit>
+    <SelectorUnit id="mov4#opm20#seu26" name="AdminStuff" gr:x="315" gr:y="365" entity="ent12" distinctAttributes="ent12#att24">
+      <Selector id="mov4#opm20#seu26#su46" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="mov4#opm20#seu26#su46#acond14" name="AttCondition11" predicate="eq" booleanOperator="or" implied="false" attributes="ent12#att16" value="1"/>
+      </Selector>
+      <OKLink id="mov4#opm20#seu26#oln107" name="OKFlow13" to="mov4#opm20#inn13">
+        <LinkParameter id="mov4#opm20#seu26#oln107#par126" name="maxopenevents_Input" source="ent12#att24Array" target="mov4#opm20#inn13.isnotnull"/>
+      </OKLink>
+    </SelectorUnit>
+    <QueryUnit id="mov4#opm20#qu19" name="Get n openEvents" gr:x="495" gr:y="425" mode="select" language="SQL" db="db1">
+      <QueryText xml:space="preserve">SELECT 
+  p.matricola, 
+  p.username
+FROM   public.persona p
+LEFT   JOIN public.evento e
+  ON   e.operatore = p.matricola
+  AND  e.closed   = FALSE
+WHERE  p.matricola = :userID
+GROUP  BY p.matricola, p.username
+HAVING COUNT(e.id) &lt; (
+    SELECT a.maxOpenEvents
+    FROM   public.AdminStuff AS a
+    WHERE  a.oid = 1
+);
+</QueryText>      <QueryInput id="mov4#opm20#qu19#qi16" name="userID" required="true" type="integer"/>      <QueryOutput id="mov4#opm20#qu19#qo28" name="usID" type="integer"/>      <QueryOutput id="mov4#opm20#qu19#qo29" name="nOpenE" type="string"/>      <OKLink id="mov4#opm20#qu19#oln110" name="OKFlow106" to="mov4#opm20#inn14">        <LinkParameter id="mov4#opm20#qu19#oln110#par218" name="usID_Input" source="data[].usID" target="mov4#opm20#inn14.isnotnull"/>      </OKLink>    </QueryUnit>    <IsNotNullUnit id="mov4#opm20#inn14" name="Is Not Null12" gr:x="775" gr:y="390" emptyStringAsNull="true">      <OKLink id="mov4#opm20#inn14#oln112" name="OKFlow112" to="mov4#opm20#seu20" automaticCoupling="true"/>      <KOLink id="mov4#opm20#inn14#kln54" name="KOFlow54" to="mov4#opm20#kocu20" automaticCoupling="true"/>    </IsNotNullUnit>  </OperationUnits></OperationModule>

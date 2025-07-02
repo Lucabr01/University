@@ -1,0 +1,25 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv4#area11" name="Notifications" defaultPage="sv4#area11#page21" landmark="true" layout:style="Copy_Of_WebRatio" gr:x="530" gr:y="25">
+  <OperationUnits>
+    <ModuleInstanceUnit id="sv4#area11#miu17" gr:x="675" gr:y="115" action="true" moduleId="mov2#opm5">
+      <KOLink id="sv4#area11#miu17#kln36" name="KOFlow17" to="sv4#area11#page21#mssu11">
+        <LinkParameter id="sv4#area11#miu17#kln36#par143" name="Error_Shown Messages" target="sv4#area11#page21#mssu11.shownMessages" sourceValue="This notification is not event-related!"/>
+      </KOLink>
+      <OKLink id="sv4#area11#miu17#oln80" name="OKFlow80" to="sv4#area12#page22#seu15">
+        <LinkParameter id="sv4#area11#miu17#oln80#par254" name="notiID_KeyCondition9 [oid]" source="mov2#opm5#okcu3#ocp4" target="sv4#area12#page22#seu15#su31#kcond21.ent11#att19"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv4#area11#miu20" gr:x="665" gr:y="285" action="true" moduleId="mov2#opm12">
+      <KOLink id="sv4#area11#miu20#kln37" name="KOFlow23" to="sv4#area11#page21#mssu11">
+        <LinkParameter id="sv4#area11#miu20#kln37#par144" name="Error_Shown Messages" target="sv4#area11#page21#mssu11.shownMessages" sourceValue="Error"/>
+      </KOLink>
+      <OKLink id="sv4#area11#miu20#oln53" name="OKFlow37" to="sv4#area11#page21#mssu12" gr:bendpoints="-217,-18,153,52">
+        <LinkParameter id="sv4#area11#miu20#oln53#par145" name="Your alert has been sent!_Shown Messages" target="sv4#area11#page21#mssu12.shownMessages" sourceValue="Your alert has been sent!"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit id="sv4#area11#miu21" gr:x="680" gr:y="530" action="true" moduleId="mov2#opm15">
+      <OKLink id="sv4#area11#miu21#oln66" name="OKFlow59" to="sv4#area11#page21#mssu12" gr:bendpoints="-50,-92,355,113">
+        <LinkParameter id="sv4#area11#miu21#oln66#par146" name="Your broadcast alarm has been sent!_Shown Messages" target="sv4#area11#page21#mssu12.shownMessages" sourceValue="Your broadcast alarm has been sent!"/>
+      </OKLink>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+</Area>
