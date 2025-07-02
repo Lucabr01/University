@@ -1,0 +1,13 @@
+#?delimiters [%, %], [%=, %]
+ <wr:LayoutParameter name="interval" label="Interval" type="integer" default="30000">
+  The timeout expressed in milliseconds
+ </wr:LayoutParameter>
+ [% setHTMLOutput() %]
+ [% def periodicalLink = unit.selectSingleNode("layout:Link") %]
+
+ <script>
+  if(window["<wr:Id context="unit"/>"]){
+clearInterval(window["<wr:Id context="unit"/>"]);
+ }
+ window["<wr:Id context="unit"/>"] = setInterval(function(){[% printRaw(getAjaxRequestCall(periodicalLink, "index")) %]}, [%= params["interval"] %] );
+ </script>  

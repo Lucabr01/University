@@ -1,0 +1,193 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter name="show-left-column" label="Show left column" type="boolean" default="false">
+Defines if the left column is shown.
+Default value is false.
+</wr:LayoutParameter>
+<wr:LayoutParameter name="show-right-column" label="Show right column" type="boolean" default="false">
+Defines if the right column is shown.
+Default value is false.
+</wr:LayoutParameter>
+<wr:Page type="HTML4_Transitional"/>
+[%  
+    setHTMLOutput()
+    def showLeftColumn = params["show-left-column"] == "true"
+    def showRightColumn = params["show-right-column"] == "true"
+    def homePage = getHomePage(page.selectSingleNode("ancestor::SiteView"))
+%]
+<wr:Resources types="jspdeclaration"/>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<webratio:Page page="<wr:Id context="page"/>"/>
+<html>
+  <head>
+  <link href="Resources/favicon.png" rel="shortcut icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  [%if(enableURLFragments()){%]<wr:BaseURI/>[%}%]
+  <title><wr:Label context="page"/></title>
+
+  <!-- CSS di base WebRatio -->
+  <link rel="stylesheet" href="Resources/css/global.css"/>
+  <link rel="stylesheet" href="Resources/css/menu.css"/>
+
+  <!-- Il tuo tema IDS -->
+  <link rel="stylesheet" href="Resources/css/theme.css"/>
+
+  <!-- Override componenti -->
+  <link rel="stylesheet" href="Resources/css/components.css"/>
+
+  <wr:Resources/>
+ </head>
+  <body>
+    <wr:PageForm>
+      <div id="top">
+        <div class="user">
+          <div class="container">
+            <wr:CustomLocation name="User"/>
+          </div>
+        </div>
+        <div class="logo">
+          <div class="container">
+            <a href="<wr:Id context="homePage"/>.do" title="Home">
+              <img src="wr-images/logo_big.png" width="264" height="66" alt="Logo IDS">
+            </a>
+          </div>
+        </div>
+        <div class="main-menu">
+          <div class="container">
+            <a href="#navmenu" title="Menu" class="toggle-menu">Menu</a>
+            <ul id="navmenu">
+              <wr:LandmarkMenu level="1" var="lm">
+                <wr:Current>
+                  <li class="current">
+                    <wr:Link/>
+                    [% if (getLandmarkChildren(lm).size() > 0) { %]
+                    <ul>
+                      <wr:LandmarkMenu level="2" var="lm2">
+                        <wr:Current>
+                          <li class="current">
+                            <wr:Link/>
+                            [% if (getLandmarkChildren(lm2).size() > 0) { %]
+                            <ul>
+                              <wr:LandmarkMenu level="3">
+                                <wr:Current>
+                                  <li class="current"><wr:Link/></li>
+                                </wr:Current>
+                                <wr:NonCurrent>
+                                  <li><wr:Link/></li>
+                                </wr:NonCurrent>
+                              </wr:LandmarkMenu>
+                            </ul>
+                            [% } %]
+                          </li>
+                        </wr:Current>
+                        <wr:NonCurrent>
+                          <li>
+                            <wr:Link/>
+                            [% if (getLandmarkChildren(lm2).size() > 0) { %]
+                            <ul>
+                              <wr:LandmarkMenu level="3">
+                                <wr:Current>
+                                  <li><wr:Link/></li>
+                                </wr:Current>
+                                <wr:NonCurrent>
+                                  <li><wr:Link/></li>
+                                </wr:NonCurrent>
+                              </wr:LandmarkMenu>
+                            </ul>
+                            [% } %]
+                          </li>
+                        </wr:NonCurrent>
+                      </wr:LandmarkMenu>
+                    </ul>
+                    [% } %]
+                  </li>
+                </wr:Current>
+                <wr:NonCurrent>
+                  <li>
+                    <wr:Link/>
+                    [% if (getLandmarkChildren(lm).size() > 0) { %]
+                    <ul>
+                      <wr:LandmarkMenu level="2" var="lm2">
+                        <wr:NonCurrent>
+                          <li>
+                            <wr:Link/>
+                            [% if (getLandmarkChildren(lm2).size() > 0) { %]
+                            <ul>
+                              <wr:LandmarkMenu level="3">
+                                <wr:NonCurrent>
+                                  <li><wr:Link/></li>
+                                </wr:NonCurrent>
+                              </wr:LandmarkMenu>
+                            </ul>
+                            [% } %]
+                          </li>
+                        </wr:NonCurrent>
+                      </wr:LandmarkMenu>
+                    </ul>
+                    [% } %]
+                  </li>
+                </wr:NonCurrent>
+              </wr:LandmarkMenu>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="breadcrumb">
+          <a href="<wr:Id context="homePage"/>.do" title="Home">
+            <img src="wr-images/home_bc.png" width="12" height="11" alt="Home">
+          </a>
+          <span class="sep">&rsaquo;</span>
+          <wr:NavigationBar><wr:Link/> <span class="sep">&rsaquo;</span></wr:NavigationBar>
+          <span><wr:Label context="page"/></span>
+        </div>
+        <div id="page-links">
+          <wr:PageLinks><wr:Link/></wr:PageLinks>
+          <wr:CustomLocation name="Page Links"/>
+        </div>
+      </div>
+
+      <div id="body" class="container">
+        [% if (showLeftColumn) { %]
+        <div id="left-column">
+          <wr:CustomLocation name="Left"/>
+        </div>
+        [% } %]
+
+        <div id="grid" class="[% if (showLeftColumn) { %]has-left[% } %] [% if (showRightColumn) { %]has-right[% } %]">
+          <wr:CustomLocation name="Top"/>
+          <wr:Grid/>
+        </div>
+
+        [% if (showRightColumn) { %]
+        <div id="right-column">
+          <wr:CustomLocation name="Right"/>
+        </div>
+        [% } %]
+      </div>
+
+      <div id="copyright">
+        <div class="container">
+          <div style="color: #666; font-family: Tahoma; font-size: small; text-decoration: none;">
+            <span>|</span>
+            <span>generated by</span>
+            <a target="_blank"
+               title="WebRatio | High Productivity Web and Mobile App Dev Platform"
+               href="http://www.webratio.com"
+               style="color: #666; font-family: Tahoma; font-size: small; text-decoration: none;">
+              <span style="color: #036; padding: 0; margin: 0;">Web</span>
+              <img style="width: 8px; height: 8px; border: 0; padding: 0; margin: 0;"
+                   alt="Generated by WebRatio"
+                   src="WRResources/WRLogo8.png">
+              <span style="color: #C00; padding: 0; margin: 0;">Ratio</span>
+            </a>
+            <sup style="font-size:80%;">&reg;</sup>
+            <span>|</span>
+          </div>
+        </div>
+      </div>
+    </wr:PageForm>
+  </body>
+</html>
+
