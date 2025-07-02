@@ -1,15 +1,15 @@
-The topic of my final course project is a management system for a **Network-Intrusion Detection System**
-built with **WebRatio**. The system uses several inline sensors to capture, analyze, and store
-network traffic data in a database. The management interface is then used by various actors
-to access the data and perform different tasks...See more on the [report](<ASE_Project_Report.pdf>)
+# Network Intrusion Detection Management System
 
+The topic of my final course project is a management system for a **Network Intrusion Detection System** built with **WebRatio**. The system uses several inline sensors to capture, analyze and store network traffic data in a database, while the management interface allows different users to browse the data and perform various tasks. See more in the [full report](ASE_Project_Report.pdf).
 
-## Inizializing the project
+---
 
-First you will have to import the [project](IntrusionDetectionSystem.zip) (if you dont know how to do it check this [video](https://my.webratio.com/learn/learningobject/organize-the-workspace-v-72?cbck=wrReq87824)). The you should add into the project (from the webratio platform software) my [custom style templates](IDSstyle.zip). If after adding the style WebRatio generates error, just apply the DefaultWebRatio Style pages and delete from the site views the **Reloading Operation** and the **Periodical Refresh Component". 
+## Initializing the project
 
-To generate and try the project, firsr, you must create a database and link it to the one inside the **Domain Model**. Inside the DB_scripts folder you can find the [backup.sql](DB_script/backup.sql) file, use it to create the right db schema. Then run the [datas.sql](DB_script/datas.sql) to populate the tables with some examples...
+To get started, import the project archive (`IntrusionDetectionSystem.zip`) into WebRatio—if you’re not sure how, check out this [video tutorial](https://my.webratio.com/learn/learningobject/organize-the-workspace-v-72?cbck=wrReq87824). Once the project is in place, upload my custom style templates (`IDSstyle.zip`) via the WebRatio interface. If you encounter errors after applying the style, simply switch back to the **DefaultWebRatio** style and remove the **Reloading Operation** and **Periodical Refresh Component** from your site views.
 
-Once all works you can generate the project, than login inside the Administrator view with --admin--admin-- as username and pass. For some unknown reasons ( you will have a lot of wild errors with WebRatio, be ready :) ) the login only works if the Name,Surname,Passw and Username of each User are the same, so take it in mind when u try to create an operator. 
+Before you can generate and run the application, you’ll need to create a database and link it to the **Domain Model** in your project. In the `DB_script/` folder you’ll find `backup.sql`, which sets up the correct schema, and `datas.sql`, which populates your tables with sample data. Run `backup.sql` first, then `datas.sql`.
 
-If you have some problems with my project or with WebRatio in general just write me. Have fun
+Once your database is configured, generate the application in WebRatio and log in to the Administrator view using **admin / admin**. Be aware that, due to a quirk in WebRatio, login only works if each user’s Name, Surname, Username and Password are identical—so keep that in mind when creating operator accounts.
+
+If you run into any problems with my project or with WebRatio in general, just let me know. Have fun!
