@@ -310,14 +310,76 @@ To assess the effectiveness of the learned policy, the final SAC agent was evalu
 ### 1. Realistic Conservative Baseline (21.5°C Cooling Setpoint)
 A static cooling setpoint of **21.5°C** represents a common real-world conservative policy used in datacenters to guarantee maximum thermal safety.  
 
+The following side-by-side comparison shows how the trained SAC agent performs against a conservative real-world baseline that keeps the cooling setpoint fixed at **21.5°C**, a strategy widely used for safety but extremely energy-inefficient.
+
+<p align="center">
+  <img src="images/EvalConsMtemp.png" alt="Temperature Comparison" width="48%">
+  <img src="images/EvalConsHVAC.png" alt="HVAC Energy Comparison" width="48%">
+</p>
+<br>
+
+<p align="center">
+
+<table>
+<tr><th>Metric</th><th>RL Agent</th><th>Conservative Baseline</th></tr>
+
+<tr><td>Comfort violation time (%)</td><td><b>3.57693</b></td><td><b>0.0</b></td></tr>
+
+<tr><td>Cumulative power demand</td><td><b>79,877,553.53</b></td><td><b>89,997,203.67</b></td></tr>
+
+<tr><td>Mean comfort penalty</td><td>-0.014835</td><td>0.0</td></tr>
+
+<tr><td>Mean power demand</td><td>15,197.69295</td><td>17,123.08131</td></tr>
+
+</table>
+
+</p>
+
+<br>
+
+**Temperature Behaviour.**  
+The conservative baseline maintains a very flat temperature curve around 22–23°C, reflecting overcooling and very limited adaptability.  
+The SAC agent instead shows controlled variability: it **explores higher setpoints**, allowing temperatures to fluctuate within the safe ASHRAE range without exceeding critical thresholds.  
+This demonstrates that rigidly keeping the setpoint at 21.5°C is unnecessary for thermal safety.
+
+**HVAC Electricity Demand.**  
+The energy plot shows the direct impact of this adaptability.  
+While the conservative baseline maintains high and stable cooling power, the SAC agent consistently operates at **lower HVAC electricity demand**, especially during periods of naturally high cooling load.  
+By avoiding unnecessary overcooling, the agent achieves **substantial energy savings** while still preserving thermal comfort.
 
 
-In direct comparison, the trained agent maintains thermal comfort for virtually the entire simulation horizon while achieving **significantly lower HVAC electricity demand**, demonstrating that a fixed, aggressively low setpoint is unnecessary for safety.
+
+Overall, the SAC agent reduces total HVAC energy consumption by **about 12%** compared to the conservative 21.5°C baseline, while maintaining thermal safety with only **3.5% time outside the comfort range**.  
+This shows that strict overcooling is unnecessary: a learned policy can preserve equipment safety while substantially lowering operational costs.
 
 ### 2. EnergyPlus Default Baseline (Bienmann et al.)
 Following the methodology of **Bienmann et al.**, we also compare against the baseline configuration provided internally by the EnergyPlus datacenter model.  
 This baseline typically operates at a noticeably higher cooling setpoint and therefore consumes less energy than the 21.5°C conservative strategy, but it allows more temperature variability.
 
-Even in this more favorable comparison, the RL policy still achieves **meaningful energy reductions** while keeping temperatures well within the recommended ASHRAE envelope. This mirrors the findings of Bienmann et al., who reported that SAC converges rapidly to stable and energy-efficient cooling strategies in realistic datacenter environments.
+<br>
+
+<p align="center">
+
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+
+<tr><td>Comfort violation time (%)</td><td><b>0</b></td></tr>
+
+<tr><td>Cumulative power demand</td><td><b>881,268,825.6090112</b></td></tr>
+
+<tr><td>Episode number</td><td>1</td></tr>
+
+<tr><td>Mean comfort penalty</td><td>0</td></tr>
+
+<tr><td>Mean power demand</td><td>16,767.22969632244</td></tr>
+
+</table>
+
+</p>
+
+<br>
+
+
+Even in this more favorable comparison, the RL policy still achieves **meaningful energy reductions** (around 10%) while keeping temperatures well within the recommended ASHRAE envelope. This mirrors the findings of Bienmann et al., who reported that SAC converges rapidly to stable and energy-efficient cooling strategies in realistic datacenter environments.
 
 # 3. Evolutionary Strategies
