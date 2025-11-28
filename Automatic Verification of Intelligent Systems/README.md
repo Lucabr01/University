@@ -286,6 +286,36 @@ workspace_path = env.get_wrapper_attr("workspace_path")
 save_path = os.path.join(workspace_path, "model_curriculum2_sac")
 model.save(save_path)
 ```
+### Training Dynamics
+
+The following figures illustrate how the agent’s behavior evolves throughout the 500k-step training process.
+
+<p align="center">
+  <img src="images/ChartSG.png" alt="Setpoint Evolution" width="60%">
+</p>
+
+**Setpoint Evolution.**  
+The evolution of the CRAC cooling setpoint shows that the agent does not collapse onto a low, energy-wasteful temperature.  
+Instead, it **explores a well-defined band of higher setpoints**, maintaining enough variability to search for efficient operating regions while still keeping temperatures under control.  
+This behavior is a direct consequence of the smooth exponential penalty, which prevents the policy from being forced into a single “safe but suboptimal” solution.
+
+<p align="center">
+  <img src="images/ChartTemp.png" alt="Temperature Violations" width="60%">
+</p>
+
+**Temperature Violations.**  
+Across training, the number and magnitude of comfort violations consistently decrease.  
+As learning progresses, the agent becomes more effective at **keeping both datacenter zones within the recommended thermal range**, sharply reducing time spent in the warning or red zones.  
+This demonstrates that the first phase of the curriculum successfully stabilizes thermal control.
+
+<p align="center">
+  <img src="images/ChartHVAC.png" alt="HVAC Energy Demand" width="60%">
+</p>
+
+**Energy Demand.**  
+Over time, the agent learns to operate the cooling system more efficiently, resulting in a **progressive reduction of HVAC electricity demand**.  
+Once comfort behavior is stabilized, the second curriculum phase encourages the agent to fine-tune energy usage, ultimately converging toward a significantly more energy-efficient control strategy.
+
 
 ## 2.4 Results
 
