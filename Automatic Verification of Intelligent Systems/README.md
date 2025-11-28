@@ -378,6 +378,5 @@ This baseline typically operates at a noticeably higher cooling setpoint and the
 <br>
 
 
-Even in this more favorable comparison, the RL policy still achieves **meaningful energy reductions** (around 10%) while keeping temperatures well within the recommended ASHRAE envelope. This mirrors the findings of Bienmann et al., who reported that SAC converges rapidly to stable and energy-efficient cooling strategies in realistic datacenter environments.
-
+Even in this more favorable comparison, the RL policy still achieves **meaningful energy reductions** (around 10%) while keeping temperatures well within the recommended ASHRAE envelope. This mirrors the findings of Bienmann et al., even with less number of actuators and training episodes.
 # 3. Evolutionary Strategies
