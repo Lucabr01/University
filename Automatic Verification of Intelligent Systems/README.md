@@ -367,8 +367,6 @@ This baseline typically operates at a noticeably higher cooling setpoint and the
 
 <tr><td>Cumulative power demand</td><td><b>881,268,825.6090112</b></td></tr>
 
-<tr><td>Episode number</td><td>1</td></tr>
-
 <tr><td>Mean comfort penalty</td><td>0</td></tr>
 
 <tr><td>Mean power demand</td><td>16,767.22969632244</td></tr>
