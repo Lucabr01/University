@@ -194,6 +194,97 @@ class CurriculumLearningCallback(BaseCallback):
         params = self.phases[new_phase]
         self._update_env_reward_params(self.env, params)
         self._update_env_reward_params(self.eval_env, params)
+
+    def _update_env_reward_params(self, env, p: dict) -> None:
+        """Update reward parameters inside the environment's reward function."""
+        try:
+            reward_fn = env.get_wrapper_attr("reward_fn")
+            if reward_fn is not None:
+                reward_fn.W_energy = p["w_E"]
+                reward_fn.W_comfort = p["w_T"]
+                reward_fn.energy_scale = p["energy_scale"]
+        except Exception as e:
+            print("Warning: error while updating reward parameters:", e)
+```
+
+### Environment & Reward Setup
+
+The SAC agent is trained in the `Eplus-datacenter_dx-mixed-continuous-v1` environment using the custom exponential reward:
+
+```python
+ENV_ID = "Eplus-datacenter_dx-mixed-continuous-v1"
+
+reward_parameters = {
+    "w_E": 1.0,
+    "w_T": 1.0,
+    "energy_scale": 17_500.0,
+    "T_high": 27.0,
+    "T_red": 28.0,
+    "temp_name": ["east_zone_air_temperature", "west_zone_air_temperature"],
+    "energy_name": "HVAC_electricity_demand_rate",
+}
+
+new_action_space = gym.spaces.Box(
+    low=np.array([20.0], dtype=np.float32),
+    high=np.array([30.0], dtype=np.float32),
+    dtype=np.float32,
+)
+
+env_kwargs = dict(
+    reward=ExponentialThermalReward,
+    reward_kwargs=reward_parameters,
+    actuators=new_actuators,
+    action_space=new_action_space,
+)
+
+env = gym.make(ENV_ID, env_name=experiment_name, **env_kwargs)
+eval_env = gym.make(ENV_ID, env_name=experiment_name + "_EVAL", **env_kwargs)
+```
+
+### SAC Agent and Training Loop
+
+The control policy is implemented using the Stable-Baselines3 SAC algorithm.  
+The full training lasts **500k steps**, with the curriculum transition from Phase 1 to Phase 2 occurring at **110k steps**.
+
+```python
+policy_kwargs = dict(
+    activation_fn=torch.nn.Tanh,
+    net_arch=dict(pi=[1024, 512], qf=[1024, 512]),
+)
+
+model = SAC(
+    "MlpPolicy",
+    env=env,
+    learning_rate=1e-4,
+    buffer_size=1_000_000,
+    learning_starts=10_000,
+    batch_size=512,
+    tau=0.002,
+    gamma=0.99,
+    train_freq=1,
+    gradient_steps=1,
+    ent_coef="auto",
+    policy_kwargs=policy_kwargs,
+    verbose=1,
+    device="cuda" if torch.cuda.is_available() else "cpu",
+)
+
+callback = CallbackList([curriculum_callback, eval_callback])
+
+steps_per_episode = env.get_wrapper_attr("timestep_per_episode")
+
+total_timesteps = min(episodes * steps_per_episode, 500_000)
+
+model.learn(
+    total_timesteps=total_timesteps,
+    callback=callback,
+    log_interval=1,
+    progress_bar=True,
+)
+
+workspace_path = env.get_wrapper_attr("workspace_path")
+save_path = os.path.join(workspace_path, "model_curriculum2_sac")
+model.save(save_path)
 ```
 
 ## 2.4 Results
