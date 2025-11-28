@@ -316,6 +316,8 @@ This demonstrates that the first phase of the curriculum successfully stabilizes
 Over time, the agent learns to operate the cooling system more efficiently, resulting in a **progressive reduction of HVAC electricity demand**.  
 Once comfort behavior is stabilized, the second curriculum phase encourages the agent to fine-tune energy usage, ultimately converging toward a significantly more energy-efficient control strategy.
 
+The full training implementation, including environment setup, curriculum logic, and SAC configuration, is available in the file **`2PHASEtraining.py`** in the repository.
+
 
 ## 2.4 Results
 
