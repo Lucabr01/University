@@ -1,7 +1,7 @@
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Agent trained with SAC](#2-agent-trained-with-sac)
+2. [Soft-Actor-Critic based model](#2-soft-actor-critic-based-model)
    1. [Environment description](#21-environment-description)
    2. [Custom Reward Function](#22-custom-reward-function)
    3. [Training](#23-training)
@@ -28,7 +28,10 @@ Formally, the two main goals of the agent are:
 
 So the agent aims to find the optimal balance between comfort and energy efficiency, maximizing the overall reward.
 
-# 2. Agent trained with SAC
+# 2. Soft-Actor-Critic based model
+
+
+
 ## 2.1 Environment description
 ## 2.2 Custom Reward Function
 ## 2.3 Training
