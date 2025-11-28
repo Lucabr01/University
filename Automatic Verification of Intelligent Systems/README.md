@@ -305,4 +305,19 @@ The full training implementation, including environment setup, curriculum logic,
 
 ## 2.4 Results
 
+To assess the effectiveness of the learned policy, the final SAC agent was evaluated in a **two-year continuous simulation** stored in Sinergym’s workspace. The performance was compared against two different baselines:
+
+### 1. Realistic Conservative Baseline (21.5°C Cooling Setpoint)
+A static cooling setpoint of **21.5°C** represents a common real-world conservative policy used in datacenters to guarantee maximum thermal safety.  
+
+
+
+In direct comparison, the trained agent maintains thermal comfort for virtually the entire simulation horizon while achieving **significantly lower HVAC electricity demand**, demonstrating that a fixed, aggressively low setpoint is unnecessary for safety.
+
+### 2. EnergyPlus Default Baseline (Bienmann et al.)
+Following the methodology of **Bienmann et al.**, we also compare against the baseline configuration provided internally by the EnergyPlus datacenter model.  
+This baseline typically operates at a noticeably higher cooling setpoint and therefore consumes less energy than the 21.5°C conservative strategy, but it allows more temperature variability.
+
+Even in this more favorable comparison, the RL policy still achieves **meaningful energy reductions** while keeping temperatures well within the recommended ASHRAE envelope. This mirrors the findings of Bienmann et al., who reported that SAC converges rapidly to stable and energy-efficient cooling strategies in realistic datacenter environments.
+
 # 3. Evolutionary Strategies
