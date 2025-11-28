@@ -147,7 +147,7 @@ Moreover, the smooth exponential shape of the penalty prevents the agent from be
 Instead of collapsing onto a single safe-but-wasteful temperature, the agent is encouraged to **explore higher cooling setpoints** when appropriate, because the penalty increases gradually rather than abruptly.  
 This makes the reward function well-suited for discovering energy-efficient operating regions that would be missed with harsher or discontinuous formulations.
 
-The complete implementation of this reward function is available in the repository inside the file **`Custom_reward.py`**.
+The complete Sinergym-frienly implementation of this reward function is available in the repository inside the file **`Custom_reward.py`**.
 
 
 ## 2.3 Training
