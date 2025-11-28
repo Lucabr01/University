@@ -158,6 +158,13 @@ In **Phase 1**, comfort and energy penalties have similar weights. Because the t
 In **Phase 2**, the weight of the energy term is slightly increased and the energy scaling is adjusted. At this point, the agent already knows how to keep temperatures safe, so the objective shifts towards **reducing HVAC electricity demand** while still respecting comfort constraints. This effectively acts as an **energy fine-tuning stage** on top of a safe policy.
 
 
+As shown in the following figure, due to the fast convergence of the SAC algorithm, only a small number of steps are needed to transition from Phase 1 to Phase 2:
+
+<p align="center">
+  <img src="images/TrainingCurves.png" alt="Training Curves" width="60%">
+</p>
+
+
 
 ### Curriculum Learning
 
