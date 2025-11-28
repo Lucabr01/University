@@ -143,6 +143,12 @@ temperatures slightly above the comfort threshold are tolerable for brief period
 
 This structure allows the agent to learn a policy that preserves **thermal safety** while minimizing **HVAC electricity demand**, which is essential for datacenter efficiency.
 
+Moreover, the smooth exponential shape of the penalty prevents the agent from being “forced” into a narrow band of setpoints.  
+Instead of collapsing onto a single safe-but-wasteful temperature, the agent is encouraged to **explore higher cooling setpoints** when appropriate, because the penalty increases gradually rather than abruptly.  
+This makes the reward function well-suited for discovering energy-efficient operating regions that would be missed with harsher or discontinuous formulations.
+
+The complete implementation of this reward function is available in the repository inside the file **`Custom_reward.py`**.
+
 
 ## 2.3 Training
 ## 2.4 Results
