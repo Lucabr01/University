@@ -147,10 +147,48 @@ Moreover, the smooth exponential shape of the penalty prevents the agent from be
 Instead of collapsing onto a single safe-but-wasteful temperature, the agent is encouraged to **explore higher cooling setpoints** when appropriate, because the penalty increases gradually rather than abruptly.  
 This makes the reward function well-suited for discovering energy-efficient operating regions that would be missed with harsher or discontinuous formulations.
 
-The complete Sinergym-frienly implementation of this reward function is available in the repository inside the file **`Custom_reward.py`**.
-
+The complete Sinergym-friendly implementation of this reward function is available in the repository inside the file **`Custom_reward.py`**.
 
 ## 2.3 Training
+
+The agent is trained using a Soft-Actor-Critic (SAC) algorithm with a two-phase curriculum applied to the reward weights. The goal is to first let the agent learn a stable thermal control policy and only afterwards fine-tune energy efficiency.
+
+In **Phase 1**, comfort and energy penalties have similar weights. Because the thermal penalty grows exponentially when temperatures move away from the comfort range, the agent primarily learns **not to leave the safe operating zone** for the IT equipment. This phase stabilizes the basic cooling behaviour.
+
+In **Phase 2**, the weight of the energy term is slightly increased and the energy scaling is adjusted. At this point, the agent already knows how to keep temperatures safe, so the objective shifts towards **reducing HVAC electricity demand** while still respecting comfort constraints. This effectively acts as an **energy fine-tuning stage** on top of a safe policy.
+
+
+
+### Curriculum Learning
+
+The curriculum is implemented by dynamically updating the reward parameters during training:
+
+```python
+class CurriculumLearningCallback(BaseCallback):
+    def __init__(self, env, eval_env, phase_transition: int = 200_000, verbose: int = 1):
+        super().__init__(verbose)
+        self.env = env
+        self.eval_env = eval_env
+        self.phase_transition = phase_transition
+        self.current_phase = 1
+
+        self.phases = {
+            1: {"w_E": 1.0, "w_T": 1.0, "energy_scale": 17_500.0},  # comfort + basic control
+            2: {"w_E": 1.5, "w_T": 1.0, "energy_scale": 17_000.0},  # energy fine-tuning
+        }
+
+    def _on_step(self) -> bool:
+        if self.num_timesteps >= self.phase_transition and self.current_phase == 1:
+            self._transition_to_phase(2)
+        return True
+
+    def _transition_to_phase(self, new_phase: int) -> None:
+        self.current_phase = new_phase
+        params = self.phases[new_phase]
+        self._update_env_reward_params(self.env, params)
+        self._update_env_reward_params(self.eval_env, params)
+```
+
 ## 2.4 Results
 
 # 3. Evolutionary Strategies
