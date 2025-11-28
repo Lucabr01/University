@@ -238,13 +238,14 @@ env_kwargs = dict(
 )
 
 env = gym.make(ENV_ID, env_name=experiment_name, **env_kwargs)
-eval_env = gym.make(ENV_ID, env_name=experiment_name + "_EVAL", **env_kwargs)
 ```
 
 ### SAC Agent and Training Loop
 
 The control policy is implemented using the Stable-Baselines3 SAC algorithm.  
 The full training lasts **500k steps**, with the curriculum transition from Phase 1 to Phase 2 occurring at **110k steps**.
+
+The architectures of the Actor/Critics is the following:
 
 ```python
 policy_kwargs = dict(
@@ -268,23 +269,6 @@ model = SAC(
     verbose=1,
     device="cuda" if torch.cuda.is_available() else "cpu",
 )
-
-callback = CallbackList([curriculum_callback, eval_callback])
-
-steps_per_episode = env.get_wrapper_attr("timestep_per_episode")
-
-total_timesteps = min(episodes * steps_per_episode, 500_000)
-
-model.learn(
-    total_timesteps=total_timesteps,
-    callback=callback,
-    log_interval=1,
-    progress_bar=True,
-)
-
-workspace_path = env.get_wrapper_attr("workspace_path")
-save_path = os.path.join(workspace_path, "model_curriculum2_sac")
-model.save(save_path)
 ```
 ### Training Dynamics
 
